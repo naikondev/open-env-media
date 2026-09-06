@@ -1,9 +1,10 @@
 {
+  "id": "urn:emdp:example-north-basin",
   "name": "example-emdp-north-basin",
   "title": "North Basin water-quality media (example)",
   "profile": "../../schemas/core/emdp-profile.json",
   "emdpProfiles": ["water"],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "created": "2026-09-05",
   "description": "Example EMDP package: a handheld shoreline photograph with Secchi depth, water temperature, and a nearby air-quality join.",
   "keywords": ["environmental media", "water quality", "EMDP"],

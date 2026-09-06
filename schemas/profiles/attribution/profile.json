@@ -1,0 +1,14 @@
+{
+  "name": "attribution",
+  "title": "Attribution and funding provenance profile",
+  "description": "Optional CMS profile for linking an economic action to activity and evidence. Outside the scientific core. Status is allocation state, not ecological impact.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations", "attributionRecords"],
+  "recommendedResources": [],
+  "rules": [
+    "Campaign association alone MUST NOT be exported as spend on a survey. Only explicit allocations belong in attributionRecords.",
+    "evidenceObservationIDs MUST reference observations that exist in this package.",
+    "Label activity counts as activity or evidence counts.",
+    "Use the name attributionRecords in exports and UI."
+  ]
+}

@@ -56,11 +56,19 @@
     },
     {
       "name": "filePublic",
-      "description": "`false` if the media file is not publicly accessible (privacy, embargo, or rights restriction).",
+      "description": "`false` if the media file is not publicly accessible. Pair with `embargoUntil` and package `licenses` (`scope=media`). This is the Camtrap-compatible media-privacy flag.",
       "skos:broadMatch": "http://rs.tdwg.org/ac/terms/serviceExpectation",
       "type": "boolean",
       "constraints": { "required": true },
       "example": true
+    },
+    {
+      "name": "embargoUntil",
+      "description": "Date after which this file may be made public. ISO 8601 date (`YYYY-MM-DD`). Empty means no media embargo beyond the deployment.",
+      "type": "date",
+      "format": "%Y-%m-%d",
+      "constraints": { "required": false },
+      "example": "2027-06-15"
     },
     {
       "name": "fileHash",
@@ -158,7 +166,7 @@
     },
     {
       "name": "exifData",
-      "description": "Selected EXIF or XMP data as a JSON object. Do not duplicate fields already modeled as columns. Strip GPS tags when `filePublic` is false or coordinates are withheld.",
+      "description": "Selected EXIF or XMP data as a JSON object. Omit fields already modeled as columns. Strip GPS tags when `filePublic` is false or coordinates are withheld.",
       "type": "any",
       "constraints": { "required": false },
       "example": "{\"EXIF\":{\"ISO\":200,\"FNumber\":8}}"

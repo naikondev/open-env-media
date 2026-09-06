@@ -1,7 +1,7 @@
 {
   "name": "contextJoins",
   "title": "Context joins",
-  "description": "Table linking a package row to an external environmental dataset at a place and time. Use this for satellite, reanalysis, or station overlays (Sentinel-5P, OpenAQ, ERA5, VIIRS). The package stores the join, not the remote archive.",
+  "description": "Table linking a package row to an external environmental dataset at a place and time. Use this for satellite, reanalysis, or station overlays (Sentinel-5P, OpenAQ, ERA5, VIIRS). The package stores the retrieved value. `sourceURI` MAY be a STAC Item or Collection href. See docs/STAC.md.",
   "fields": [
     {
       "name": "contextJoinID",
@@ -91,6 +91,65 @@
       "constraints": { "required": false, "minimum": 0 },
       "unit": "m",
       "example": 5000
+    },
+    {
+      "name": "joinMethod",
+      "description": "How the external value was associated with the target. Record enough provenance for reuse.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": [
+          "nearestStation",
+          "gridCell",
+          "interpolation",
+          "zonal",
+          "pointSample",
+          "other"
+        ]
+      },
+      "example": "nearestStation"
+    },
+    {
+      "name": "spatialMethod",
+      "description": "Spatial sampling used inside `joinMethod`.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": [
+          "nearest",
+          "bilinear",
+          "bicubic",
+          "pointInPolygon",
+          "buffer",
+          "other"
+        ]
+      },
+      "example": "nearest"
+    },
+    {
+      "name": "temporalWindow",
+      "description": "Time window used for the join, relative to `joinTime`.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": [
+          "instant",
+          "hourly",
+          "daily",
+          "rolling24h",
+          "monthly",
+          "climatology",
+          "other"
+        ]
+      },
+      "example": "hourly"
+    },
+    {
+      "name": "sourceRecordID",
+      "description": "Identifier of the station, granule, or record inside `datasetID` (e.g. OpenAQ location id, Sentinel product id).",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "US-EPA-123"
     },
     {
       "name": "sourceURI",

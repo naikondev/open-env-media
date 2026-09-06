@@ -1,7 +1,7 @@
 {
   "name": "atmosphere",
   "title": "Air and atmosphere media profile",
-  "description": "Environmental media documenting air quality, emissions, haze, and atmospheric haze or flare events. Gases are often invisible; contextJoins supply the sensor overlay a photograph cannot.",
+  "description": "Environmental media documenting air quality, emissions, haze, and flare events. contextJoins supply the sensor overlay when gases are invisible in the frame.",
   "extends": "emdp-core",
   "requiredResources": ["deployments", "media", "observations"],
   "recommendedResources": ["measurements", "contextJoins"],

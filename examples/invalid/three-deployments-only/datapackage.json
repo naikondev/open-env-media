@@ -1,0 +1,34 @@
+{
+  "id": "urn:emdp:invalid-three-deployments",
+  "name": "invalid-three-deployments",
+  "profile": "../../../schemas/core/emdp-profile.json",
+  "created": "2026-09-06",
+  "contributors": [{ "title": "x", "role": "contact" }],
+  "project": {
+    "title": "invalid",
+    "captureMethod": ["handheld"],
+    "observationTypes": ["other"]
+  },
+  "spatial": { "type": "Point", "coordinates": [0, 0] },
+  "temporal": { "start": "2026-01-01", "end": "2026-01-02" },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "a.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "deployments",
+      "path": "b.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "deployments",
+      "path": "c.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/deployments-table-schema.json"
+    }
+  ]
+}

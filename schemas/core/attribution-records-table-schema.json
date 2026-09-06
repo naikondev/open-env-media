@@ -1,14 +1,14 @@
 {
-  "name": "impactRecords",
-  "title": "Impact records",
-  "description": "Optional table linking an economic action to conservation activity and evidence in this package. Status describes the allocation, not a verified environmental outcome. Intended for CMS interchange (e.g. ArtInStack), not as a scientific core resource.",
+  "name": "attributionRecords",
+  "title": "Attribution records",
+  "description": "Optional CMS table linking an economic action to conservation activity and evidence. Lives in the attribution profile. Status is the allocation state.",
   "fields": [
     {
-      "name": "impactRecordID",
-      "description": "Unique identifier of the impact record.",
+      "name": "attributionRecordID",
+      "description": "Unique identifier of the attribution record.",
       "type": "string",
       "constraints": { "required": true, "unique": true },
-      "example": "ir1"
+      "example": "ar1"
     },
     {
       "name": "sourceType",
@@ -50,7 +50,7 @@
     },
     {
       "name": "activityID",
-      "description": "Conservation activity or survey the amount was allocated toward. Do not infer this from campaign association alone.",
+      "description": "Conservation activity or survey the amount was allocated toward. Set this only when an explicit allocation exists.",
       "type": "string",
       "constraints": { "required": false },
       "example": "survey-north-basin"
@@ -64,7 +64,7 @@
     },
     {
       "name": "status",
-      "description": "State of the allocation, not proof that a conservation outcome occurred.",
+      "description": "State of the allocation: allocated, inProgress, or completed.",
       "type": "string",
       "constraints": {
         "required": true,
@@ -82,19 +82,19 @@
     },
     {
       "name": "evidenceObservationIDs",
-      "description": "Observation identifiers offered as linked evidence. Pipe-separated. Only list observations that are actually attached.",
+      "description": "Observation identifiers offered as linked evidence. Pipe-separated. Only list observations that exist in this package.",
       "type": "string",
       "constraints": { "required": false },
       "example": "obs1"
     },
     {
-      "name": "impactRecordComments",
-      "description": "Comments. Do not use this field to claim outcomes that are not evidenced.",
+      "name": "attributionRecordComments",
+      "description": "Comments on the allocation record.",
       "type": "string",
       "constraints": { "required": false },
       "example": ""
     }
   ],
   "missingValues": ["", "NA", "NaN", "nan"],
-  "primaryKey": "impactRecordID"
+  "primaryKey": "attributionRecordID"
 }

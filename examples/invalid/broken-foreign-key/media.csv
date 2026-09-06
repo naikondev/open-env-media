@@ -1,0 +1,2 @@
+mediaID,deploymentID,timestamp,filePath,fileName,fileMediatype,filePublic,embargoUntil,fileHash,mediaRole,derivedFromMediaID,captureMethod,creator,latitude,longitude,coordinateUncertainty,elevation,calibrationTarget,exifData,favorite,mediaComments
+m1,dep-missing,2026-06-15T08:42:10Z,media/waterfront-001.jpg,waterfront-001.jpg,image/jpeg,true,,sha256:4f2c0a1b8e9d,primary,,handheld,Jane Doe,42.38125,-71.12341,8,24.5,none,"{""EXIF"":{""ISO"":200,""FNumber"":8}}",true,

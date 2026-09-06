@@ -24,7 +24,7 @@
   ],
   "recommendedContextDatasets": ["copernicus-sst", "noaa-tides", "coralnet"],
   "notes": [
-    "Do not put taxon occurrences here. Benthic organisms observed as species belong in Camtrap DP, Darwin Core, or an OBIS/DwC-A export.",
-    "CoralNet and similar model outputs are measurements (imageDerived or modelOutput), not a required software integration."
+    "Benthic organisms observed as species belong in Camtrap DP, Darwin Core, or an OBIS/DwC-A export.",
+    "CoralNet and similar model outputs are measurements (imageDerived or modelOutput)."
   ]
 }

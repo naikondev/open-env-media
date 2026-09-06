@@ -1,8 +1,8 @@
 # Camtrap DP ↔ EMDP crosswalk
 
-ArtInStack and similar CMS tools already model **survey → deployment → media → observation** and export [Camtrap DP](https://camtrap-dp.tdwg.org/) for GBIF. EMDP is the same graph with a different observation payload.
+ArtInStack and similar CMS tools already model survey → deployment → media → observation and export [Camtrap DP](https://camtrap-dp.tdwg.org/) for GBIF. EMDP follows that package graph with environmental assertions, measurements, and optional joins. Wildlife observations stay in Camtrap DP.
 
-## Split, do not merge
+## Two packages from one survey
 
 If a survey contains both a fox and an algal bloom:
 
@@ -11,7 +11,7 @@ If a survey contains both a fox and an algal bloom:
 | Taxon, count, sex, life stage, behavior | Camtrap DP `observations.csv` |
 | Water condition, Secchi depth, SST join | EMDP `observations.csv` + `measurements.csv` |
 
-Do **not** add `scientificName` to EMDP or `secchiDepth` to Camtrap DP. Two zips from one survey is the intended ArtInStack shape.
+Keep `scientificName` in Camtrap DP. Keep `secchiDepth` in EMDP. Two zips from one survey is the intended ArtInStack shape.
 
 ## Shared columns
 
@@ -39,7 +39,7 @@ Reuse names and types so one exporter can fill both packages.
 
 ## Suggested CMS mapping (ArtInStack)
 
-Keep the current bio-asset objects. Add an observation **domain** (wildlife vs environmental) rather than a second DAM.
+Keep the current bio-asset objects. Add an observation domain (wildlife vs environmental) on the existing DAM.
 
 | Platform object | Camtrap DP | EMDP |
 | --- | --- | --- |
@@ -48,15 +48,15 @@ Keep the current bio-asset objects. Add an observation **domain** (wildlife vs e
 | `media` + `geo_*` | `media` | `media` (apply the same spatial resolver / embargo) |
 | `media_observations` with taxon | `observations` | skip |
 | `media_observations` with environmental type | skip | `observations` |
-| New: measurement rows | — | `measurements` |
-| New: dataset joins at ingest | — | `contextJoins` |
-| Impact Record allocations | — | `impactRecords` (impact-record profile only) |
+| New: measurement rows | | `measurements` |
+| New: dataset joins at ingest | | `contextJoins` |
+| Attribution / allocation rows | | `attributionRecords` (`attribution` profile only) |
 
-Spatial governance already applied to Camtrap/GBIF (`coordinateUncertainty`, omit, embargo) should run on EMDP with the same resolver. `spatialPrivacy=withheld` is the package-level expression of “do not publish coords.”
+Spatial governance already applied to Camtrap/GBIF (`coordinateUncertainty`, omit, embargo) should run on EMDP with the same resolver. `spatialPrivacy=withheld` means published coordinates are omitted.
 
 ## What not to build in the standard
 
-These are CMS features. Persist their **results** as measurements, alignments, or joins:
+These are CMS features. Persist their results as measurements, alignments, or joins:
 
 - CoralNet / habitat CV pipelines → `measurements` (`liveCoralCover`, `imageDerived`)
 - Sentinel-5P or OpenAQ overlays → `contextJoins`
@@ -65,4 +65,6 @@ These are CMS features. Persist their **results** as measurements, alignments, o
 
 ## Validation
 
-A dual exporter can validate Camtrap packages against the TDWG profile and EMDP packages against `schemas/core/emdp-profile.json` independently. Sharing a zip or a `resources` array between the two profiles will fail validation — keep the bundles separate.
+A dual exporter can validate Camtrap packages against the TDWG profile and EMDP packages against `schemas/core/emdp-profile.json` independently. Sharing a zip or a `resources` array between the two profiles will fail validation. Keep the bundles separate.
+
+For Earth-observation catalogs (STAC), see `docs/STAC.md`. Keep Camtrap DP, EMDP, and STAC as separate egress formats.

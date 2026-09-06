@@ -1,0 +1,29 @@
+name: Validate EMDP
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install reference CLI
+        run: pip install -e .
+      - name: Validate example packages via CLI
+        run: |
+          emdp --version
+          emdp validate examples/sample-package
+          emdp validate examples/repeat-photo-package
+      - name: Reject a known-invalid package
+        run: |
+          if emdp validate examples/invalid/three-deployments-only; then
+            echo "expected invalid package to fail" >&2
+            exit 1
+          fi
+      - name: Repo fixtures
+        run: python3 scripts/validate.py

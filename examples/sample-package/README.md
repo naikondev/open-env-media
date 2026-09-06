@@ -1,5 +1,5 @@
 # Sample EMDP package (water)
 
-Minimal **water** profile package: one fixed shoreline visit, one photograph, one water-quality observation, two in-situ measurements, and one OpenAQ context join (to show the join pattern even on a water survey).
+One shoreline visit, one photograph, one water-quality assertion, two photo-associated measurements, one **deployment-only** logger measurement (pH, no observation), and an OpenAQ join with method provenance.
 
-Validate the three core tables plus `measurements` and `contextJoins` against `schemas/core`.
+This package shows that a logger measurement can exist without an observation row.

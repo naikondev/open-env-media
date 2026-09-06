@@ -1,0 +1,2 @@
+measurementID,deploymentID,observationID,mediaID,measurementType,measurementValue,measurementUnit,measurementScheme,measurementSource,datasetID,datasetVersion,measurementAccuracy,measurementMethod,measurementDeterminedBy,measurementDeterminedDate,classificationProbability,measurementRemarks
+meas-bad,,,,ph,7.8,,,inSitu,,,,,,,

@@ -2,57 +2,62 @@
 
 ## Mission
 
-EMDP is an open exchange format for environmental media that falls **outside** the wildlife-tracking stack. It links media files to place, time, interpreted condition, measurements, and optional joins to external environmental datasets.
+EMDP is a portable evidence package for environmental media outside the wildlife-tracking stack. It binds media to place, time, assertions, measurements, and optional joins to external datasets.
 
-Wildlife occurrence data already has Camtrap DP and Darwin Core. EMDP exists so water, air, land-cover, climate, and dark-sky media can be packaged with the same seriousness — without inventing a second species standard.
+Wildlife occurrence data already has Camtrap DP and Darwin Core. Geospatial asset catalogs already have [STAC](https://stacspec.org/). EMDP follows the Camtrap package graph for interpreted field evidence. See `docs/STAC.md`.
 
 ## Scope
 
 In scope:
 
-- repeat photography for land cover, habitat, glacier, and shoreline change
+- repeat photography and other corresponding-scene media
 - water-quality and hydrological documentation
 - air-quality and atmospheric hazard documentation
 - dark-sky and light-pollution assessments
 - climate-extreme and disturbance documentation
-- restoration and intervention records as **conditions**, not claimed outcomes
-- optional provenance records that link economic actions to activity (CMS profile)
+- restoration and intervention records recorded as observed conditions
+- optional funding-attribution records (CMS profile only)
 
 Out of scope:
 
 - taxon occurrences, camera-trap animal classifications, or a GBIF competitor
+- replacing STAC or cataloging Earth-observation archives for search
 - storing satellite archives, climate model cubes, or station networks
 - specifying computer-vision or alignment algorithms
 - treating allocation or donation records as proof of ecological success
+- defining EMDP's identity in terms of commerce or impact
 
 ## Goals
 
-- A predictable, validatable package isomorphic to Camtrap DP
-- A measurement table that plays the role taxon plays for wildlife
-- Domain profiles that do not fragment the core
-- Privacy and embargo that do not break interchange
+- A predictable, validatable package that follows the Camtrap DP graph
+- A reference validator (`emdp validate`) so packages can be checked with a tool
+- A measurement table for quantitative and coded environmental facts
+- Domain profiles that keep the core package contract intact
+- Privacy and embargo fields that remain validatable
 - A governance process suitable for open scientific and conservation data
 
 ## Principles
 
 1. **Open by default**
-2. **Package-first** — structure before field arguments
-3. **Sister to Camtrap DP** — same graph, different observation payload
-4. **Extensible by profile** — vocabularies and optional resources, not forked cores
-5. **Temporal and spatial integrity** — including the right to withhold coordinates
-6. **Evidence quality and provenance** — hashes, licenses, classification audit
-7. **Joins, not warehouses** — name the dataset and store the retrieved value
-8. **Compatible with Data Package / Table Schema conventions**
+2. **Package-first.** The profile requires `deployments`, `media`, and `observations` exactly once.
+3. **Follow the Camtrap graph; keep Camtrap observation semantics in Camtrap DP**
+4. **Catalog assets with STAC; deposit survey evidence with EMDP; join the two.**
+5. **Assertion, fact, and join stay separate**
+6. **Extensible by profile.** Vocabularies and optional resources, one core.
+7. **Temporal and spatial integrity**, including the right to withhold coordinates
+8. **Store joins; leave remote archives in place**
+9. **Compatible with Data Package / Table Schema conventions**
+10. **The `attribution` profile is optional and outside the core.**
 
 ## Package model
 
 Minimum compliant package:
 
-- `datapackage.json` using the EMDP profile
-- `deployments`, `media`, `observations` tabular resources
+- `datapackage.json` using the EMDP profile, with a canonical `id`
+- exactly one `deployments`, `media`, and `observations` resource
 - declared `project`, `spatial`, and `temporal` metadata
 
-Optional resources (`measurements`, `alignments`, `contextJoins`, `impactRecords`) are added by need or profile.
+Optional resources (`measurements`, `alignments`, `contextJoins`, `attributionRecords`) are added by need or profile.
 
 ## Governance
 
@@ -60,7 +65,8 @@ Optional resources (`measurements`, `alignments`, `contextJoins`, `impactRecords
 - Version-controlled schema updates
 - Compatibility review for core package changes
 - Required vs recommended fields stated in Table Schema
-- Public examples
+- Public examples and negative fixtures
+- CI must reject invalid packages via the reference CLI
 
 ## Versioning
 
@@ -73,4 +79,4 @@ Semantic versioning. Breaking core contract changes require a major version afte
 
 ## Status
 
-Draft 0.2 direction. Intended to evolve through public review and a reference implementation (including a Camtrap-capable CMS exporter).
+Draft 0.3. Intended to evolve through public review and a reference implementation (including a Camtrap-capable CMS exporter).

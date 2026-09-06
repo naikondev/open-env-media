@@ -1,3 +1,4 @@
-measurementID,observationID,mediaID,measurementType,measurementValue,measurementUnit,measurementScheme,measurementSource,datasetID,datasetVersion,measurementAccuracy,measurementMethod,measurementDeterminedBy,measurementDeterminedDate,classificationProbability,measurementRemarks
-meas1,obs1,m1,secchiDepth,1.2,m,,inSitu,,,0.1,"Secchi disk, 20 cm",Jane Doe,2026-06-15T08:40:00Z,,
-meas2,obs1,m1,waterTemperature,22.4,degC,,inSitu,,,0.2,handheld probe,Jane Doe,2026-06-15T08:41:00Z,,
+measurementID,deploymentID,observationID,mediaID,measurementType,measurementValue,measurementUnit,measurementScheme,measurementSource,datasetID,datasetVersion,measurementAccuracy,measurementMethod,measurementDeterminedBy,measurementDeterminedDate,classificationProbability,measurementRemarks
+meas1,dep1,obs1,m1,secchiDepth,1.2,m,,inSitu,,,0.1,"Secchi disk, 20 cm",Jane Doe,2026-06-15T08:40:00Z,,
+meas2,dep1,obs1,m1,waterTemperature,22.4,degC,,inSitu,,,0.2,handheld probe,Jane Doe,2026-06-15T08:41:00Z,,
+meas3,dep1,,,ph,7.8,,,inSitu,,,0.1,shoreline logger,North Basin sonde,2026-06-15T08:00:00Z,,Not derived from the photograph

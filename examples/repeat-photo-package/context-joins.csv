@@ -1,0 +1,2 @@
+contextJoinID,targetType,targetID,datasetID,datasetVersion,variable,value,unit,joinTime,joinLatitude,joinLongitude,joinRadius,joinMethod,spatialMethod,temporalWindow,sourceRecordID,sourceURI,retrievedAt,contextJoinComments
+join-wc,observation,obs-2026,esa-worldcover,2021,landCoverClass,10,,2026-08-14T15:16:00Z,42.62,-71.45,0,gridCell,nearest,other,ESA-WC-2021-tile,https://worldcover2021.esa.int/,2026-08-20T13:00:00Z,Class 10 = tree cover

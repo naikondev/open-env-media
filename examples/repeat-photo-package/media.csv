@@ -1,0 +1,4 @@
+mediaID,deploymentID,timestamp,filePath,fileName,fileMediatype,filePublic,embargoUntil,fileHash,mediaRole,derivedFromMediaID,captureMethod,creator,latitude,longitude,coordinateUncertainty,elevation,calibrationTarget,exifData,favorite,mediaComments
+m-2024,dep-2024,2024-08-12T15:12:00Z,media/ridge-2024.jpg,ridge-2024.jpg,image/jpeg,true,,sha256:aa11,primary,,fixedPoint,Alex Rivera,42.62,-71.45,5,186,none,,true,
+m-2025,dep-2025,2025-08-11T15:14:00Z,media/ridge-2025.jpg,ridge-2025.jpg,image/jpeg,true,,sha256:bb22,primary,,fixedPoint,Alex Rivera,42.62,-71.45,5,186,none,,true,
+m-2026,dep-2026,2026-08-14T15:16:00Z,media/ridge-2026.jpg,ridge-2026.jpg,image/jpeg,true,,sha256:cc33,primary,,fixedPoint,Alex Rivera,42.62,-71.45,5,186,none,,true,

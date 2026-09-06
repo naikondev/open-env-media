@@ -1,7 +1,7 @@
 {
   "name": "observations",
   "title": "Observations",
-  "description": "Table with environmental observations derived from media. An observation is an interpreted claim about a condition, process, or event — not a taxon record. Quantitative facts belong in `measurements`. Wildlife/taxon observations belong in Camtrap DP, not here.",
+  "description": "An observation is an assertion or interpretation: a claim that something was the case. Quantitative or coded facts belong in `measurements`. External dataset overlays belong in `contextJoins`. Bounding boxes and classification audit fields record how the assertion was produced or localized. Wildlife and taxon observations belong in Camtrap DP.",
   "fields": [
     {
       "name": "observationID",
@@ -62,7 +62,7 @@
     },
     {
       "name": "observationType",
-      "description": "Domain of the environmental observation. This is the abiotic analogue of Camtrap DP `observationType=animal`. Do not use this table for taxon records.",
+      "description": "Domain of the environmental observation. Taxon records belong in Camtrap DP.",
       "type": "string",
       "constraints": {
         "required": true,

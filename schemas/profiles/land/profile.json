@@ -5,6 +5,7 @@
   "extends": "emdp-core",
   "requiredResources": ["deployments", "media", "observations"],
   "recommendedResources": ["measurements", "alignments", "contextJoins"],
+  "alignmentNote": "alignments are a core optional table for any corresponding-scene pair, including marked repeat-photo stakes.",
   "observationTypes": ["landCover", "habitatCondition", "disturbance", "restoration"],
   "measurementTypes": [
     "landCoverClass",

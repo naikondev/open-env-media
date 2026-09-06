@@ -1,0 +1,58 @@
+{
+  "id": "urn:emdp:measurement-without-parent",
+  "name": "measurement-without-parent",
+  "profile": "../../../schemas/core/emdp-profile.json",
+  "created": "2026-09-06",
+  "contributors": [
+    {
+      "title": "x",
+      "role": "contact"
+    }
+  ],
+  "project": {
+    "title": "invalid",
+    "captureMethod": [
+      "handheld"
+    ],
+    "observationTypes": [
+      "waterQuality"
+    ]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [
+      -71.1234,
+      42.3812
+    ]
+  },
+  "temporal": {
+    "start": "2026-06-15",
+    "end": "2026-06-15"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "../../sample-package/deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "../../sample-package/media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "../../sample-package/observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../../schemas/core/measurements-table-schema.json"
+    }
+  ]
+}

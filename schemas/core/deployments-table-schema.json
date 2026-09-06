@@ -1,7 +1,7 @@
 {
   "name": "deployments",
   "title": "Deployments",
-  "description": "Table with observation sites and survey events. A deployment is a site visit, fixed station, or repeat-photo point — not only a camera-trap placement. Handheld documentary work still gets a deployment row (the visit).",
+  "description": "Table with observation sites and survey events. A deployment is a site visit, fixed station, or repeat-photo point. Handheld documentary work still gets a deployment row (the visit).",
   "fields": [
     {
       "name": "deploymentID",

@@ -1,7 +1,7 @@
 {
   "name": "rpdp",
   "title": "Repeat Photo Data Profile",
-  "description": "Fixed-point repeat photography for temporal change. Extends the land profile with an alignments resource and a stable locationID across visits.",
+  "description": "Fixed-point repeat photography for temporal change. This is the common use of the core alignments table. Extends the land profile with a stable locationID across visits.",
   "extends": "land",
   "requiredResources": ["deployments", "media", "observations"],
   "recommendedResources": ["alignments", "measurements"],
@@ -10,6 +10,6 @@
     "Every deployment used for comparison MUST set fixedPoint=true.",
     "Revisits of the same stake MUST reuse the same locationID.",
     "cameraHeading, cameraTilt, and focalLength SHOULD be recorded so later visits can match framing.",
-    "When two frames are registered, add an alignments row rather than overwriting media."
+    "When two frames are registered, add an alignments row and keep both media files."
   ]
 }

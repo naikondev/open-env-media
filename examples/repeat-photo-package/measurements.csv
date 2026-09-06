@@ -1,0 +1,5 @@
+measurementID,deploymentID,observationID,mediaID,measurementType,measurementValue,measurementUnit,measurementScheme,measurementSource,datasetID,datasetVersion,measurementAccuracy,measurementMethod,measurementDeterminedBy,measurementDeterminedDate,classificationProbability,measurementRemarks
+meas-2024,dep-2024,obs-2024,m-2024,canopyCover,82,%,,imageDerived,,,5,dot grid on aligned frame,Alex Rivera,2024-08-20T12:10:00Z,,
+meas-2025,dep-2025,obs-2025,m-2025,canopyCover,71,%,,imageDerived,,,5,dot grid on aligned frame,Alex Rivera,2025-08-18T12:10:00Z,,
+meas-2026,dep-2026,obs-2026,m-2026,canopyCover,58,%,,imageDerived,,,5,dot grid on aligned frame,Alex Rivera,2026-08-20T12:10:00Z,,
+meas-lc,dep-2026,obs-2026,m-2026,landCoverClass,tree cover,,esa-worldcover,externalDataset,esa-worldcover,2021,,,,2026-08-20T13:00:00Z,,

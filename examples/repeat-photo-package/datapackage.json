@@ -1,0 +1,85 @@
+{
+  "id": "urn:emdp:example-ridge-plot",
+  "name": "example-emdp-ridge-plot",
+  "title": "Ridge plot repeat photography (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["land", "rpdp"],
+  "version": "0.3.0",
+  "created": "2026-09-06",
+  "description": "Fixed-point forest plot photographed in 2024, 2025, and 2026, with pairwise alignments, canopy-cover measurements, and a WorldCover join.",
+  "keywords": ["repeat photography", "land cover", "EMDP"],
+  "contributors": [
+    {
+      "title": "Alex Rivera",
+      "role": "contact",
+      "organization": "Ridge Watch"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-ridge",
+    "title": "Ridge plot canopy watch",
+    "captureMethod": ["fixedPoint"],
+    "observationTypes": ["landCover", "disturbance"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-71.45, 42.62]
+  },
+  "temporal": {
+    "start": "2024-08-12",
+    "end": "2026-08-14"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "alignments",
+      "path": "alignments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/alignments-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    }
+  ]
+}

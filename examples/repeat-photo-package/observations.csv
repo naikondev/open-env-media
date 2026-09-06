@@ -1,0 +1,4 @@
+observationID,deploymentID,mediaID,eventID,eventStart,eventEnd,observationLevel,observationType,condition,bboxX,bboxY,bboxWidth,bboxHeight,classificationMethod,classifiedBy,classificationTimestamp,classificationProbability,observationTags,observationComments
+obs-2024,dep-2024,m-2024,ridge-canopy,2024-08-12T15:12:00Z,2024-08-12T15:12:00Z,media,landCover,closed canopy,,,,,human,Alex Rivera,2024-08-20T12:00:00Z,0.9,baseline,Reference year.
+obs-2025,dep-2025,m-2025,ridge-canopy,2025-08-11T15:14:00Z,2025-08-11T15:14:00Z,media,landCover,thinning canopy,,,,,human,Alex Rivera,2025-08-18T12:00:00Z,0.88,,Gap opening after windthrow.
+obs-2026,dep-2026,m-2026,ridge-canopy,2026-08-14T15:16:00Z,2026-08-14T15:16:00Z,media,disturbance,canopy loss,,,,,human,Alex Rivera,2026-08-20T12:00:00Z,0.93,ice-storm,Mid-canopy broken after winter ice storm.

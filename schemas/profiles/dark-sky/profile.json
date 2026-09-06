@@ -1,7 +1,7 @@
 {
   "name": "dark-sky",
   "title": "Dark-sky observation profile",
-  "description": "Nighttime media documenting artificial light at night (ALAN) and sky quality. SQM, Bortle, and satellite radiance are measurements or context joins — not photo captions.",
+  "description": "Nighttime media documenting artificial light at night (ALAN) and sky quality. SQM, Bortle, and satellite radiance belong in measurements or context joins.",
   "extends": "emdp-core",
   "requiredResources": ["deployments", "media", "observations"],
   "recommendedResources": ["measurements", "contextJoins"],

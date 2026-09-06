@@ -1,7 +1,7 @@
 {
   "name": "alignments",
   "title": "Alignments",
-  "description": "Table with pairwise geometric relationships between media files from the same fixed point. Used by the Repeat Photo profile so later frames can be compared to earlier ones. The standard records the relationship; it does not specify an alignment algorithm.",
+  "description": "Pairwise geometric relationship between two media resources that represent the same or a corresponding scene. Repeat photography is the common case (`rpdp`); the table also covers before/after restoration, shoreline or glacier comparison, and drone-to-drone registration. The standard records the relationship; it does not specify an alignment algorithm.",
   "fields": [
     {
       "name": "alignmentID",

@@ -1,7 +1,7 @@
 {
   "name": "measurements",
   "title": "Measurements",
-  "description": "Table with quantitative or coded facts attached to an observation. This is the Darwin Core MeasurementOrFact analogue: taxon is to Camtrap DP as measurement is to EMDP. One observation may have many measurements.",
+  "description": "Quantified or coded facts. A measurement may hang off a deployment (sensor), a media file (image-derived), an observation (evidence for a claim), or any combination. A measurement MUST reference at least one of deploymentID, observationID, or mediaID. measurementValue is a string (Darwin Core MeasurementOrFact). Consumers MUST interpret datatype and semantics from measurementType, measurementUnit, and measurementScheme.",
   "fields": [
     {
       "name": "measurementID",
@@ -12,15 +12,22 @@
       "example": "meas1"
     },
     {
-      "name": "observationID",
-      "description": "Observation this measurement describes. Foreign key to `observations.observationID`.",
+      "name": "deploymentID",
+      "description": "Deployment or visit this measurement belongs to. Use this for in-situ sensors that are not derived from a photograph. Foreign key to `deployments.deploymentID`.",
       "type": "string",
-      "constraints": { "required": true },
+      "constraints": { "required": false },
+      "example": "dep1"
+    },
+    {
+      "name": "observationID",
+      "description": "Observation this measurement supports, if any. Foreign key to `observations.observationID`.",
+      "type": "string",
+      "constraints": { "required": false },
       "example": "obs1"
     },
     {
       "name": "mediaID",
-      "description": "Optional media file this measurement was taken from or computed on.",
+      "description": "Media file this measurement was taken from or computed on, if any. Foreign key to `media.mediaID`.",
       "type": "string",
       "constraints": { "required": false },
       "example": "m1"
@@ -35,7 +42,7 @@
     },
     {
       "name": "measurementValue",
-      "description": "Recorded value. Stored as string so categorical codes (land-cover class, Bortle class, tide phase) and numbers share one column.",
+      "description": "Lexical value. Consumers MUST interpret datatype from `measurementType`, `measurementUnit`, and `measurementScheme`. `42`, `42.0`, and `forest` are all strings here. This follows Darwin Core MeasurementOrFact.",
       "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementValue",
       "type": "string",
       "constraints": { "required": true },
@@ -74,7 +81,7 @@
     },
     {
       "name": "datasetID",
-      "description": "External dataset or instrument identifier when `measurementSource` is `externalDataset` or `modelOutput` (e.g. `era5`, `sentinel-5p`, `openaq`, `viirs-dnb`, `coralnet`).",
+      "description": "External dataset or instrument identifier when `measurementSource` is `externalDataset` or `modelOutput`.",
       "type": "string",
       "constraints": { "required": false },
       "example": ""
@@ -88,7 +95,7 @@
     },
     {
       "name": "measurementAccuracy",
-      "description": "Reported accuracy, error, or uncertainty of the value, in the same unit as `measurementUnit` when numeric.",
+      "description": "Reported accuracy or uncertainty, in the same unit as `measurementUnit` when numeric.",
       "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementAccuracy",
       "type": "string",
       "constraints": { "required": false },
@@ -138,6 +145,10 @@
   "missingValues": ["", "NA", "NaN", "nan"],
   "primaryKey": "measurementID",
   "foreignKeys": [
+    {
+      "fields": "deploymentID",
+      "reference": { "resource": "deployments", "fields": "deploymentID" }
+    },
     {
       "fields": "observationID",
       "reference": { "resource": "observations", "fields": "observationID" }

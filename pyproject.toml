@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "emdp"
+version = "0.3.0"
+description = "Reference validator for Environmental Media Data Packages"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE-CODE" }
+authors = [{ name = "Prashant Naik" }]
+dependencies = ["jsonschema>=4.23.0"]
+
+[project.urls]
+Homepage = "https://github.com/open-env-media/emdp"
+
+[project.scripts]
+emdp = "emdp.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["emdp"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schemas/core/emdp-profile.json" = "emdp/schemas/emdp-profile.json"
+"schemas/core/deployments-table-schema.json" = "emdp/schemas/deployments-table-schema.json"
+"schemas/core/media-table-schema.json" = "emdp/schemas/media-table-schema.json"
+"schemas/core/observations-table-schema.json" = "emdp/schemas/observations-table-schema.json"
+"schemas/core/measurements-table-schema.json" = "emdp/schemas/measurements-table-schema.json"
+"schemas/core/alignments-table-schema.json" = "emdp/schemas/alignments-table-schema.json"
+"schemas/core/context-joins-table-schema.json" = "emdp/schemas/context-joins-table-schema.json"
+"schemas/core/attribution-records-table-schema.json" = "emdp/schemas/attribution-records-table-schema.json"
