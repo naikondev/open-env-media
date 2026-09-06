@@ -1,0 +1,100 @@
+{
+  "name": "impactRecords",
+  "title": "Impact records",
+  "description": "Optional table linking an economic action to conservation activity and evidence in this package. Status describes the allocation, not a verified environmental outcome. Intended for CMS interchange (e.g. ArtInStack), not as a scientific core resource.",
+  "fields": [
+    {
+      "name": "impactRecordID",
+      "description": "Unique identifier of the impact record.",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "ir1"
+    },
+    {
+      "name": "sourceType",
+      "description": "Kind of economic action.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": ["donation", "license", "pod", "grant", "other"]
+      },
+      "example": "donation"
+    },
+    {
+      "name": "sourceID",
+      "description": "Identifier of the source transaction in the originating system.",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "don_123"
+    },
+    {
+      "name": "amount",
+      "description": "Allocated amount.",
+      "type": "number",
+      "constraints": { "required": true, "minimum": 0 },
+      "example": 250
+    },
+    {
+      "name": "currency",
+      "description": "ISO 4217 currency code.",
+      "type": "string",
+      "constraints": { "required": true, "minLength": 3, "maxLength": 3 },
+      "example": "USD"
+    },
+    {
+      "name": "campaignID",
+      "description": "Commercial or fundraising campaign the action supported.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "camp-shoreline"
+    },
+    {
+      "name": "activityID",
+      "description": "Conservation activity or survey the amount was allocated toward. Do not infer this from campaign association alone.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "survey-north-basin"
+    },
+    {
+      "name": "purpose",
+      "description": "Human-readable purpose of the allocation.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "North Basin water-quality monitoring"
+    },
+    {
+      "name": "status",
+      "description": "State of the allocation, not proof that a conservation outcome occurred.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": ["allocated", "inProgress", "completed"]
+      },
+      "example": "allocated"
+    },
+    {
+      "name": "allocatedAt",
+      "description": "Date and time the allocation was recorded. ISO 8601 with timezone designator.",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-20T16:00:00Z"
+    },
+    {
+      "name": "evidenceObservationIDs",
+      "description": "Observation identifiers offered as linked evidence. Pipe-separated. Only list observations that are actually attached.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "obs1"
+    },
+    {
+      "name": "impactRecordComments",
+      "description": "Comments. Do not use this field to claim outcomes that are not evidenced.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "impactRecordID"
+}

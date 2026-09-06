@@ -1,0 +1,21 @@
+{
+  "name": "climate",
+  "title": "Climate event and extremes profile",
+  "description": "Media documenting drought, heat, flood, storm, or other climate-attributed events. Attribution context comes from contextJoins to reanalysis or index products, not from the photograph alone.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations"],
+  "recommendedResources": ["measurements", "contextJoins"],
+  "observationTypes": ["climateEvent", "disturbance"],
+  "measurementTypes": [
+    "precipAnomaly",
+    "temperatureAnomaly",
+    "droughtIndex",
+    "heatwaveDays",
+    "floodStage"
+  ],
+  "recommendedContextDatasets": ["era5", "hdX"],
+  "notes": [
+    "A photo of a dry reservoir is evidence of a condition. A 30-year rainfall deficit is an ERA5 (or equivalent) join, stored separately.",
+    "Do not present a context join as proof of legal or scientific attribution unless the source dataset and method say so."
+  ]
+}

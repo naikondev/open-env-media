@@ -1,0 +1,2 @@
+contextJoinID,targetType,targetID,datasetID,datasetVersion,variable,value,unit,joinTime,joinLatitude,joinLongitude,joinRadius,sourceURI,retrievedAt,contextJoinComments
+join1,observation,obs1,openaq,v3,pm25,12,ug/m3,2026-06-15T08:42:10Z,42.3812,-71.1234,5000,https://api.openaq.org/v3/measurements/example,2026-06-15T12:00:00Z,Nearest station 3.2 km NE

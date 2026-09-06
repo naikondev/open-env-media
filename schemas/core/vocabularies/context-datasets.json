@@ -1,0 +1,57 @@
+{
+  "name": "context-datasets",
+  "title": "EMDP context dataset identifiers",
+  "description": "Recommended datasetID values for contextJoins and for measurements with measurementSource=externalDataset. A CMS may join these at ingest; the standard only names the join.",
+  "terms": [
+    {
+      "id": "openaq",
+      "domains": ["atmosphere"],
+      "description": "OpenAQ station measurements (PM2.5, NO2, O3, AQI)."
+    },
+    {
+      "id": "sentinel-5p",
+      "domains": ["atmosphere"],
+      "description": "Copernicus Sentinel-5P atmospheric column products (NO2, CH4, CO, aerosols)."
+    },
+    {
+      "id": "era5",
+      "domains": ["climate", "atmosphere"],
+      "description": "ERA5 reanalysis (temperature, precipitation, wind)."
+    },
+    {
+      "id": "viirs-dnb",
+      "domains": ["dark-sky"],
+      "description": "VIIRS Day/Night Band nighttime radiance."
+    },
+    {
+      "id": "copernicus-sst",
+      "domains": ["water"],
+      "description": "Copernicus or NOAA sea-surface temperature products."
+    },
+    {
+      "id": "noaa-tides",
+      "domains": ["water"],
+      "description": "NOAA or equivalent tide-gauge predictions and observations."
+    },
+    {
+      "id": "coralnet",
+      "domains": ["water"],
+      "description": "CoralNet or similar benthic cover classification outputs."
+    },
+    {
+      "id": "esa-worldcover",
+      "domains": ["land"],
+      "description": "ESA WorldCover land-cover map."
+    },
+    {
+      "id": "gfw",
+      "domains": ["land"],
+      "description": "Global Forest Watch tree-cover or loss products."
+    },
+    {
+      "id": "hdX",
+      "domains": ["climate"],
+      "description": "Humanitarian Data Exchange / OSM disaster layers."
+    }
+  ]
+}

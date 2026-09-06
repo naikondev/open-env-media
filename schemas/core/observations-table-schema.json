@@ -1,0 +1,183 @@
+{
+  "name": "observations",
+  "title": "Observations",
+  "description": "Table with environmental observations derived from media. An observation is an interpreted claim about a condition, process, or event — not a taxon record. Quantitative facts belong in `measurements`. Wildlife/taxon observations belong in Camtrap DP, not here.",
+  "fields": [
+    {
+      "name": "observationID",
+      "description": "Unique identifier of the observation.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/occurrenceID",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "obs1"
+    },
+    {
+      "name": "deploymentID",
+      "description": "Identifier of the deployment the observation belongs to. Foreign key to `deployments.deploymentID`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/parentEventID",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "dep1"
+    },
+    {
+      "name": "mediaID",
+      "description": "Identifier of the media file that was classified. Required when `observationLevel` is `media`. Foreign key to `media.mediaID`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/associatedMedia",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "m1"
+    },
+    {
+      "name": "eventID",
+      "description": "Identifier of a multi-file event (e.g. a repeat-photo pair, a dive transect, or a storm sequence).",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventID",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "bloom-2026-06"
+    },
+    {
+      "name": "eventStart",
+      "description": "Date and time at which the observed event or classification window started. ISO 8601 with timezone designator.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T08:42:10Z"
+    },
+    {
+      "name": "eventEnd",
+      "description": "Date and time at which the observed event or classification window ended. For a single still frame this equals `eventStart`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T08:42:10Z"
+    },
+    {
+      "name": "observationLevel",
+      "description": "`media` for a classification tied to one file. `event` for a classification over a set of files or a visit.",
+      "type": "string",
+      "constraints": { "required": true, "enum": ["media", "event"] },
+      "example": "media"
+    },
+    {
+      "name": "observationType",
+      "description": "Domain of the environmental observation. This is the abiotic analogue of Camtrap DP `observationType=animal`. Do not use this table for taxon records.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "landCover",
+          "waterQuality",
+          "habitatCondition",
+          "airQuality",
+          "lightPollution",
+          "climateEvent",
+          "disturbance",
+          "restoration",
+          "pollution",
+          "other"
+        ]
+      },
+      "example": "waterQuality"
+    },
+    {
+      "name": "condition",
+      "description": "Short qualitative label for what was observed (e.g. algal bloom, canopy loss, smog, glacier retreat). Controlled values may be added by a profile. Quantitative values go in `measurements`.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "algal bloom"
+    },
+    {
+      "name": "bboxX",
+      "description": "Horizontal position of the top-left corner of a bounding box, relative to media width (`0`–`1`).",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/XFrac",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": 0.12
+    },
+    {
+      "name": "bboxY",
+      "description": "Vertical position of the top-left corner of a bounding box, relative to media height (`0`–`1`).",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/YFrac",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": 0.4
+    },
+    {
+      "name": "bboxWidth",
+      "description": "Bounding box width relative to media width.",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/widthFrac",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": 0.7
+    },
+    {
+      "name": "bboxHeight",
+      "description": "Bounding box height relative to media height.",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/heightFrac",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": 0.35
+    },
+    {
+      "name": "classificationMethod",
+      "description": "Method used to classify the observation.",
+      "type": "string",
+      "constraints": { "required": false, "enum": ["human", "machine"] },
+      "example": "human"
+    },
+    {
+      "name": "classifiedBy",
+      "description": "Person, organization, or model that classified the observation.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/identifiedBy",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Jane Doe"
+    },
+    {
+      "name": "classificationTimestamp",
+      "description": "Date and time of the classification. ISO 8601 with timezone designator.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/dateIdentified",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": false },
+      "example": "2026-06-16T14:10:00Z"
+    },
+    {
+      "name": "classificationProbability",
+      "description": "Certainty of the classification, `0`–`1`.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": 0.91
+    },
+    {
+      "name": "observationTags",
+      "description": "Tags associated with the observation. Pipe-separated, optionally `key:value` pairs.",
+      "skos:exactMatch": "http://rs.tdwg.org/ac/terms/tag",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "nearshore | visible-scum"
+    },
+    {
+      "name": "observationComments",
+      "description": "Comments or notes about the observation.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/occurrenceRemarks",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Visible surface scum and discoloration in nearshore water."
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "observationID",
+  "foreignKeys": [
+    {
+      "fields": "deploymentID",
+      "reference": { "resource": "deployments", "fields": "deploymentID" }
+    },
+    {
+      "fields": "mediaID",
+      "reference": { "resource": "media", "fields": "mediaID" }
+    }
+  ]
+}

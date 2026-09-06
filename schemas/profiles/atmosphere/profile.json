@@ -1,0 +1,24 @@
+{
+  "name": "atmosphere",
+  "title": "Air and atmosphere media profile",
+  "description": "Environmental media documenting air quality, emissions, haze, and atmospheric haze or flare events. Gases are often invisible; contextJoins supply the sensor overlay a photograph cannot.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations"],
+  "recommendedResources": ["measurements", "contextJoins"],
+  "observationTypes": ["airQuality", "pollution"],
+  "measurementTypes": [
+    "pm25",
+    "pm10",
+    "no2",
+    "o3",
+    "ch4",
+    "aqi",
+    "aerosolOpticalDepth",
+    "atmosphericVisibility"
+  ],
+  "recommendedContextDatasets": ["openaq", "sentinel-5p"],
+  "notes": [
+    "Prefer an OpenAQ or equivalent station join at capture time over a free-text smog label alone.",
+    "Photometric calibration (colorCard, polarimeter) belongs on media.calibrationTarget; derived AOD is a measurement with measurementSource=imageDerived."
+  ]
+}

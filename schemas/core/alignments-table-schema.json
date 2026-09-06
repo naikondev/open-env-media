@@ -1,0 +1,94 @@
+{
+  "name": "alignments",
+  "title": "Alignments",
+  "description": "Table with pairwise geometric relationships between media files from the same fixed point. Used by the Repeat Photo profile so later frames can be compared to earlier ones. The standard records the relationship; it does not specify an alignment algorithm.",
+  "fields": [
+    {
+      "name": "alignmentID",
+      "description": "Unique identifier of the alignment.",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "aln1"
+    },
+    {
+      "name": "locationID",
+      "description": "Fixed-point location shared by both media files.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "loc-north-basin"
+    },
+    {
+      "name": "referenceMediaID",
+      "description": "Earlier or canonical frame. Foreign key to `media.mediaID`.",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "m0"
+    },
+    {
+      "name": "alignedMediaID",
+      "description": "Later or compared frame. Foreign key to `media.mediaID`.",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "m1"
+    },
+    {
+      "name": "alignmentMethod",
+      "description": "How the frames were registered.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": ["manual", "featureMatch", "homography", "other"]
+      },
+      "example": "featureMatch"
+    },
+    {
+      "name": "transform",
+      "description": "Geometric transform taking `alignedMediaID` into the reference frame. JSON object (e.g. 3x3 homography matrix) or a path to a sidecar file.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "{\"type\":\"homography\",\"matrix\":[1,0,0,0,1,0,0,0,1]}"
+    },
+    {
+      "name": "residualError",
+      "description": "Reported alignment residual, typically RMSE in pixels.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0 },
+      "unit": "px",
+      "example": 1.8
+    },
+    {
+      "name": "alignedBy",
+      "description": "Person or software that produced the alignment.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "OpenCV-ORB"
+    },
+    {
+      "name": "alignmentTimestamp",
+      "description": "Date and time the alignment was produced. ISO 8601 with timezone designator.",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": false },
+      "example": "2026-06-16T15:00:00Z"
+    },
+    {
+      "name": "alignmentComments",
+      "description": "Comments or notes about the alignment.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "alignmentID",
+  "foreignKeys": [
+    {
+      "fields": "referenceMediaID",
+      "reference": { "resource": "media", "fields": "mediaID" }
+    },
+    {
+      "fields": "alignedMediaID",
+      "reference": { "resource": "media", "fields": "mediaID" }
+    }
+  ]
+}

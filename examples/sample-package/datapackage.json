@@ -1,0 +1,78 @@
+{
+  "name": "example-emdp-north-basin",
+  "title": "North Basin water-quality media (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["water"],
+  "version": "0.2.0",
+  "created": "2026-09-05",
+  "description": "Example EMDP package: a handheld shoreline photograph with Secchi depth, water temperature, and a nearby air-quality join.",
+  "keywords": ["environmental media", "water quality", "EMDP"],
+  "contributors": [
+    {
+      "title": "Jane Doe",
+      "role": "contact",
+      "organization": "BlueRiver Lab"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-100",
+    "title": "North Basin summer water watch",
+    "captureMethod": ["handheld"],
+    "observationTypes": ["waterQuality"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-71.1234, 42.3812]
+  },
+  "temporal": {
+    "start": "2026-06-15",
+    "end": "2026-06-15"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    }
+  ]
+}

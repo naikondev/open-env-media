@@ -1,0 +1,253 @@
+{
+  "name": "deployments",
+  "title": "Deployments",
+  "description": "Table with observation sites and survey events. A deployment is a site visit, fixed station, or repeat-photo point — not only a camera-trap placement. Handheld documentary work still gets a deployment row (the visit).",
+  "fields": [
+    {
+      "name": "deploymentID",
+      "description": "Unique identifier of the deployment.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventID",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "dep1"
+    },
+    {
+      "name": "locationID",
+      "description": "Stable identifier of the place. Reuse the same locationID across deployments when the same plot, stake, shoreline mark, or station is revisited.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/locationID",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "loc-north-basin"
+    },
+    {
+      "name": "locationName",
+      "description": "Name given to the location.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/locality",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "North Basin"
+    },
+    {
+      "name": "latitude",
+      "description": "Latitude of the deployment in decimal degrees (WGS84). Required unless `spatialPrivacy` is `withheld`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/decimalLatitude",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -90, "maximum": 90 },
+      "example": 42.3812
+    },
+    {
+      "name": "longitude",
+      "description": "Longitude of the deployment in decimal degrees (WGS84). Required unless `spatialPrivacy` is `withheld`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/decimalLongitude",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -180, "maximum": 180 },
+      "example": -71.1234
+    },
+    {
+      "name": "coordinateUncertainty",
+      "description": "Horizontal distance in meters from the given coordinates describing the smallest circle containing the true location. Use when coordinates are rounded or generalized.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters",
+      "type": "integer",
+      "constraints": { "required": false, "minimum": 1 },
+      "unit": "m",
+      "example": 100
+    },
+    {
+      "name": "elevation",
+      "description": "Elevation of the deployment above mean sea level.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/minimumElevationInMeters",
+      "type": "number",
+      "constraints": { "required": false },
+      "unit": "m",
+      "example": 24.5
+    },
+    {
+      "name": "spatialPrivacy",
+      "description": "How coordinates in this row may be published. `exact` publishes the recorded location. `generalized` means coordinates were coarsened (`coordinateUncertainty` should be set). `withheld` means coordinates are omitted from the public package.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": ["exact", "generalized", "withheld"]
+      },
+      "example": "exact"
+    },
+    {
+      "name": "embargoUntil",
+      "description": "Date after which the deployment location and associated media may be made public. Formatted as ISO 8601 date (`YYYY-MM-DD`). Empty means no embargo.",
+      "type": "date",
+      "format": "%Y-%m-%d",
+      "constraints": { "required": false },
+      "example": "2027-06-15"
+    },
+    {
+      "name": "deploymentStart",
+      "description": "Date and time at which the deployment or site visit started. ISO 8601 with timezone designator.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T08:00:00Z"
+    },
+    {
+      "name": "deploymentEnd",
+      "description": "Date and time at which the deployment or site visit ended. For a single handheld visit, this may equal `deploymentStart` plus the session length. ISO 8601 with timezone designator.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/eventDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T10:30:00Z"
+    },
+    {
+      "name": "setupBy",
+      "description": "Name or identifier of the person or organization that established the deployment.",
+      "skos:broadMatch": "http://rs.tdwg.org/eco/terms/samplingPerformedBy",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Jane Doe"
+    },
+    {
+      "name": "fixedPoint",
+      "description": "`true` if this deployment is a permanently marked repeat-photo or monitoring point intended for temporal alignment.",
+      "type": "boolean",
+      "constraints": { "required": false },
+      "example": true
+    },
+    {
+      "name": "cameraModel",
+      "description": "Manufacturer and model of the camera or recording device. Formatted as `manufacturer-model`.",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/captureDevice",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Canon-EOS-R5"
+    },
+    {
+      "name": "lens",
+      "description": "Lens or optic used for the deployment, when relevant to repeat photography or photometry.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "RF 24-70mm f/2.8"
+    },
+    {
+      "name": "focalLength",
+      "description": "Focal length used at the deployment. Especially relevant for fixed-point repeats.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0 },
+      "unit": "mm",
+      "example": 35
+    },
+    {
+      "name": "cameraHeading",
+      "description": "Horizontal aiming angle, decimal degrees clockwise from north (`0` north, `90` east, `180` south, `270` west).",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 360 },
+      "unit": "°",
+      "example": 187.5
+    },
+    {
+      "name": "cameraTilt",
+      "description": "Vertical aiming angle in degrees (`-90` down, `0` horizontal, `90` up).",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -90, "maximum": 90 },
+      "unit": "°",
+      "example": 2.1
+    },
+    {
+      "name": "cameraRoll",
+      "description": "Rotation about the lens axis in degrees.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -180, "maximum": 180 },
+      "unit": "°",
+      "example": 0.4
+    },
+    {
+      "name": "fieldOfView",
+      "description": "Horizontal field of view of the deployed optic.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 360 },
+      "unit": "°",
+      "example": 72
+    },
+    {
+      "name": "cameraHeight",
+      "description": "Height of the camera above the surface. Not to be combined with `cameraDepth`.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0 },
+      "unit": "m",
+      "example": 1.6
+    },
+    {
+      "name": "cameraDepth",
+      "description": "Depth of the camera below the water surface. Not to be combined with `cameraHeight`.",
+      "skos:narrowMatch": [
+        "http://rs.tdwg.org/dwc/terms/minimumDepthInMeters",
+        "http://rs.tdwg.org/dwc/terms/maximumDepthInMeters"
+      ],
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0 },
+      "unit": "m",
+      "example": 4.8
+    },
+    {
+      "name": "featureType",
+      "description": "Landscape or infrastructure feature associated with the deployment, if any.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": [
+          "shoreline",
+          "river",
+          "lake",
+          "wetland",
+          "reef",
+          "glacier",
+          "forestPlot",
+          "grassland",
+          "agriculturalField",
+          "urbanEdge",
+          "industrialStack",
+          "flare",
+          "reservoir",
+          "floodplain",
+          "sky",
+          "horizon",
+          "trail",
+          "other"
+        ]
+      },
+      "example": "shoreline"
+    },
+    {
+      "name": "habitat",
+      "description": "Short characterization of the habitat or setting at the deployment location.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/habitat",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Temperate freshwater basin, nearshore"
+    },
+    {
+      "name": "deploymentGroups",
+      "description": "Spatial, temporal, or project groupings. Pipe-separated, preferably `key:value` pairs.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "season:summer 2026 | transect:A"
+    },
+    {
+      "name": "deploymentTags",
+      "description": "Tags associated with the deployment. Pipe-separated, optionally `key:value` pairs.",
+      "skos:exactMatch": "http://rs.tdwg.org/ac/terms/tag",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "repeat-photo | public-access"
+    },
+    {
+      "name": "deploymentComments",
+      "description": "Comments or notes about the deployment.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/eventRemarks",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Stake marked on north boulder."
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "deploymentID"
+}

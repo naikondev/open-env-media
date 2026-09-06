@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Environmental Media Data Package",
+  "description": "Frictionless Data Package profile for environmental media that is not wildlife-occurrence data. Sister standard to Camtrap DP.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://specs.frictionlessdata.io/schemas/data-package.json"
+    },
+    {
+      "required": [
+        "resources",
+        "profile",
+        "created",
+        "contributors",
+        "project",
+        "spatial",
+        "temporal"
+      ],
+      "properties": {
+        "resources": {
+          "description": "Each core resource must be a Tabular Data Resource with a fixed name and schema. Additional resources are allowed.",
+          "minItems": 3,
+          "items": {
+            "oneOf": [
+              {
+                "required": ["name", "path", "profile", "schema"],
+                "properties": {
+                  "name": {
+                    "enum": ["deployments", "media", "observations"]
+                  },
+                  "profile": {
+                    "enum": ["tabular-data-resource"]
+                  },
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "required": ["name"],
+                "properties": {
+                  "name": {
+                    "not": {
+                      "enum": ["deployments", "media", "observations"]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "profile": {
+          "description": "URL of the EMDP profile version used by this package.",
+          "type": "string"
+        },
+        "emdpProfiles": {
+          "description": "Domain profile identifiers that add vocabularies and optional resources. Core-only packages may omit this.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "land",
+              "rpdp",
+              "water",
+              "atmosphere",
+              "dark-sky",
+              "climate",
+              "impact-record"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "created": {
+          "type": "string"
+        },
+        "contributors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "properties": {
+              "role": {
+                "enum": [
+                  "contact",
+                  "principalInvestigator",
+                  "rightsHolder",
+                  "publisher",
+                  "contributor"
+                ]
+              }
+            }
+          }
+        },
+        "licenses": {
+          "description": "If provided, include at least one license for package data and one for media files.",
+          "minItems": 2,
+          "items": {
+            "required": ["scope"],
+            "properties": {
+              "scope": {
+                "type": "string",
+                "enum": ["data", "media"]
+              }
+            }
+          }
+        },
+        "project": {
+          "description": "Study or program that originated the package.",
+          "type": "object",
+          "required": ["title", "captureMethod", "observationTypes"],
+          "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "acronym": { "type": "string" },
+            "description": { "type": "string" },
+            "path": { "type": "string", "format": "uri" },
+            "captureMethod": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "handheld",
+                  "fixedPoint",
+                  "timeLapse",
+                  "activityDetection",
+                  "aerial",
+                  "underwater",
+                  "other"
+                ]
+              }
+            },
+            "observationTypes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "landCover",
+                  "waterQuality",
+                  "habitatCondition",
+                  "airQuality",
+                  "lightPollution",
+                  "climateEvent",
+                  "disturbance",
+                  "restoration",
+                  "pollution",
+                  "other"
+                ]
+              }
+            },
+            "observationLevel": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["media", "event"]
+              }
+            }
+          }
+        },
+        "coordinatePrecision": {
+          "description": "Least precise published coordinate precision in degrees. Relevant when coordinates were generalized.",
+          "type": "number"
+        },
+        "spatial": {
+          "description": "Spatial coverage as GeoJSON.",
+          "type": "object"
+        },
+        "temporal": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "name": "measurement-types",
+  "title": "EMDP measurement types",
+  "description": "Recommended measurementType values. Profiles list which subset they expect. Additional types are allowed; prefer a clear unit and scheme over inventing a near-duplicate term.",
+  "terms": [
+    {
+      "id": "landCoverClass",
+      "domain": "land",
+      "unit": "",
+      "schemeExamples": ["corine", "nlcd", "esa-worldcover", "osm"],
+      "description": "Coded land-cover or land-use class."
+    },
+    {
+      "id": "canopyCover",
+      "domain": "land",
+      "unit": "%",
+      "description": "Canopy or tree cover fraction in the frame or plot."
+    },
+    {
+      "id": "snowCover",
+      "domain": "land",
+      "unit": "%",
+      "description": "Snow or ice cover fraction."
+    },
+    {
+      "id": "burnedArea",
+      "domain": "land",
+      "unit": "%",
+      "description": "Burned or scorched fraction visible in the frame or plot."
+    },
+    {
+      "id": "shorelinePosition",
+      "domain": "land",
+      "unit": "m",
+      "description": "Displacement of a shoreline or waterline relative to a marked reference."
+    },
+    {
+      "id": "glacierFrontDistance",
+      "domain": "land",
+      "unit": "m",
+      "description": "Distance from a fixed mark to the visible glacier front."
+    },
+    {
+      "id": "erosionScarpHeight",
+      "domain": "land",
+      "unit": "m",
+      "description": "Visible height of an erosion scarp or bank."
+    },
+    {
+      "id": "waterTemperature",
+      "domain": "water",
+      "unit": "degC",
+      "description": "In-situ water temperature."
+    },
+    {
+      "id": "seaSurfaceTemperature",
+      "domain": "water",
+      "unit": "degC",
+      "description": "Sea surface temperature, in situ or from an external SST product."
+    },
+    {
+      "id": "salinity",
+      "domain": "water",
+      "unit": "PSU",
+      "description": "Practical salinity."
+    },
+    {
+      "id": "waterDepth",
+      "domain": "water",
+      "unit": "m",
+      "description": "Water depth at the capture or sample point."
+    },
+    {
+      "id": "secchiDepth",
+      "domain": "water",
+      "unit": "m",
+      "description": "Secchi disk depth."
+    },
+    {
+      "id": "horizontalVisibility",
+      "domain": "water",
+      "unit": "m",
+      "description": "Underwater or surface horizontal visibility."
+    },
+    {
+      "id": "turbidity",
+      "domain": "water",
+      "unit": "NTU",
+      "description": "Turbidity."
+    },
+    {
+      "id": "ph",
+      "domain": "water",
+      "unit": "",
+      "description": "pH."
+    },
+    {
+      "id": "dissolvedOxygen",
+      "domain": "water",
+      "unit": "mg/L",
+      "description": "Dissolved oxygen."
+    },
+    {
+      "id": "chlorophyllA",
+      "domain": "water",
+      "unit": "ug/L",
+      "description": "Chlorophyll-a concentration."
+    },
+    {
+      "id": "tidePhase",
+      "domain": "water",
+      "unit": "",
+      "schemeExamples": ["high", "low", "flood", "ebb", "slack"],
+      "description": "Tide phase at capture."
+    },
+    {
+      "id": "liveCoralCover",
+      "domain": "water",
+      "unit": "%",
+      "description": "Live coral cover fraction, often image-derived (e.g. CoralNet)."
+    },
+    {
+      "id": "bleachingCover",
+      "domain": "water",
+      "unit": "%",
+      "description": "Bleached coral fraction."
+    },
+    {
+      "id": "plasticDensity",
+      "domain": "water",
+      "unit": "n/m2",
+      "description": "Visible plastic or debris count per square meter."
+    },
+    {
+      "id": "pm25",
+      "domain": "atmosphere",
+      "unit": "ug/m3",
+      "description": "Fine particulate matter (PM2.5)."
+    },
+    {
+      "id": "pm10",
+      "domain": "atmosphere",
+      "unit": "ug/m3",
+      "description": "Coarse particulate matter (PM10)."
+    },
+    {
+      "id": "no2",
+      "domain": "atmosphere",
+      "unit": "ug/m3",
+      "description": "Nitrogen dioxide."
+    },
+    {
+      "id": "o3",
+      "domain": "atmosphere",
+      "unit": "ug/m3",
+      "description": "Ozone."
+    },
+    {
+      "id": "ch4",
+      "domain": "atmosphere",
+      "unit": "ppb",
+      "description": "Methane mixing ratio."
+    },
+    {
+      "id": "aqi",
+      "domain": "atmosphere",
+      "unit": "",
+      "schemeExamples": ["us-epa", "eea", "openaq-aqi"],
+      "description": "Air quality index value."
+    },
+    {
+      "id": "aerosolOpticalDepth",
+      "domain": "atmosphere",
+      "unit": "",
+      "description": "Aerosol optical depth, from photometry or a satellite product."
+    },
+    {
+      "id": "atmosphericVisibility",
+      "domain": "atmosphere",
+      "unit": "km",
+      "description": "Horizontal atmospheric visibility."
+    },
+    {
+      "id": "sqm",
+      "domain": "dark-sky",
+      "unit": "mag/arcsec2",
+      "description": "Sky Quality Meter reading."
+    },
+    {
+      "id": "bortleClass",
+      "domain": "dark-sky",
+      "unit": "",
+      "schemeExamples": ["bortle"],
+      "description": "Bortle dark-sky class (1–9)."
+    },
+    {
+      "id": "limitingMagnitude",
+      "domain": "dark-sky",
+      "unit": "mag",
+      "description": "Naked-eye or photographic limiting magnitude."
+    },
+    {
+      "id": "viirsRadiance",
+      "domain": "dark-sky",
+      "unit": "nW/cm2/sr",
+      "description": "Nighttime radiance from a VIIRS Day/Night Band join."
+    },
+    {
+      "id": "precipAnomaly",
+      "domain": "climate",
+      "unit": "%",
+      "description": "Precipitation anomaly versus a stated climatology."
+    },
+    {
+      "id": "temperatureAnomaly",
+      "domain": "climate",
+      "unit": "degC",
+      "description": "Temperature anomaly versus a stated climatology."
+    },
+    {
+      "id": "droughtIndex",
+      "domain": "climate",
+      "unit": "",
+      "schemeExamples": ["spi", "spei", "pdsi"],
+      "description": "Drought index value."
+    },
+    {
+      "id": "heatwaveDays",
+      "domain": "climate",
+      "unit": "d",
+      "description": "Consecutive heatwave days in the event window."
+    },
+    {
+      "id": "floodStage",
+      "domain": "climate",
+      "unit": "m",
+      "description": "Observed water level or flood stage."
+    }
+  ]
+}

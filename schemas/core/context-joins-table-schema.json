@@ -1,0 +1,120 @@
+{
+  "name": "contextJoins",
+  "title": "Context joins",
+  "description": "Table linking a package row to an external environmental dataset at a place and time. Use this for satellite, reanalysis, or station overlays (Sentinel-5P, OpenAQ, ERA5, VIIRS). The package stores the join, not the remote archive.",
+  "fields": [
+    {
+      "name": "contextJoinID",
+      "description": "Unique identifier of the join.",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "join1"
+    },
+    {
+      "name": "targetType",
+      "description": "Package table the join is attached to.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": ["deployment", "media", "observation"]
+      },
+      "example": "observation"
+    },
+    {
+      "name": "targetID",
+      "description": "Identifier in the target table (`deploymentID`, `mediaID`, or `observationID`).",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "obs1"
+    },
+    {
+      "name": "datasetID",
+      "description": "External dataset identifier. Prefer a term from `schemas/core/vocabularies/context-datasets.json`.",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "openaq"
+    },
+    {
+      "name": "datasetVersion",
+      "description": "Product, processing level, or API version.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "v3"
+    },
+    {
+      "name": "variable",
+      "description": "Variable retrieved from the dataset (e.g. `pm25`, `no2`, `sst`, `precipAnomaly`).",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "pm25"
+    },
+    {
+      "name": "value",
+      "description": "Value returned by the join.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "42"
+    },
+    {
+      "name": "unit",
+      "description": "Unit of `value`.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "ug/m3"
+    },
+    {
+      "name": "joinTime",
+      "description": "Timestamp used for the spatiotemporal join. ISO 8601 with timezone designator.",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T08:42:10Z"
+    },
+    {
+      "name": "joinLatitude",
+      "description": "Latitude used for the join, if different from the published deployment coordinate.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -90, "maximum": 90 },
+      "example": 42.3812
+    },
+    {
+      "name": "joinLongitude",
+      "description": "Longitude used for the join.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -180, "maximum": 180 },
+      "example": -71.1234
+    },
+    {
+      "name": "joinRadius",
+      "description": "Search radius used to find a station or grid cell.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0 },
+      "unit": "m",
+      "example": 5000
+    },
+    {
+      "name": "sourceURI",
+      "description": "Resolvable URI for the retrieved record or granule.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "https://api.openaq.org/v3/measurements/123"
+    },
+    {
+      "name": "retrievedAt",
+      "description": "When the value was retrieved. ISO 8601 with timezone designator.",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": false },
+      "example": "2026-06-15T12:00:00Z"
+    },
+    {
+      "name": "contextJoinComments",
+      "description": "Comments or notes about the join (e.g. nearest-station name, gap-fill method).",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Nearest station 3.2 km NE"
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "contextJoinID"
+}

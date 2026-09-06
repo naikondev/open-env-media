@@ -1,0 +1,30 @@
+{
+  "name": "water",
+  "title": "Water and marine media profile",
+  "description": "Environmental media documenting water quality, hydrology, and marine or freshwater habitat condition. Observations use observationType waterQuality, habitatCondition, or pollution. Quantitative parameters belong in measurements.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations"],
+  "recommendedResources": ["measurements", "contextJoins"],
+  "observationTypes": ["waterQuality", "habitatCondition", "pollution"],
+  "measurementTypes": [
+    "waterTemperature",
+    "seaSurfaceTemperature",
+    "salinity",
+    "waterDepth",
+    "secchiDepth",
+    "horizontalVisibility",
+    "turbidity",
+    "ph",
+    "dissolvedOxygen",
+    "chlorophyllA",
+    "tidePhase",
+    "liveCoralCover",
+    "bleachingCover",
+    "plasticDensity"
+  ],
+  "recommendedContextDatasets": ["copernicus-sst", "noaa-tides", "coralnet"],
+  "notes": [
+    "Do not put taxon occurrences here. Benthic organisms observed as species belong in Camtrap DP, Darwin Core, or an OBIS/DwC-A export.",
+    "CoralNet and similar model outputs are measurements (imageDerived or modelOutput), not a required software integration."
+  ]
+}

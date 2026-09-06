@@ -1,0 +1,16 @@
+{
+  "name": "dark-sky",
+  "title": "Dark-sky observation profile",
+  "description": "Nighttime media documenting artificial light at night (ALAN) and sky quality. SQM, Bortle, and satellite radiance are measurements or context joins — not photo captions.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations"],
+  "recommendedResources": ["measurements", "contextJoins"],
+  "observationTypes": ["lightPollution"],
+  "measurementTypes": ["sqm", "bortleClass", "limitingMagnitude", "viirsRadiance"],
+  "recommendedContextDatasets": ["viirs-dnb"],
+  "notes": [
+    "Record SQM in mag/arcsec2 with measurementType=sqm.",
+    "Bortle class uses measurementScheme=bortle and measurementValue 1–9.",
+    "Calibrated RAW files should be listed as mediaRole=raw with calibrationTarget when a meter or card is used."
+  ]
+}

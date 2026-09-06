@@ -1,0 +1,23 @@
+{
+  "name": "land",
+  "title": "Land and habitat media profile",
+  "description": "Environmental media documenting land cover, habitat structure, and landscape change. Use with rpdp when the same location is photographed repeatedly from a fixed point.",
+  "extends": "emdp-core",
+  "requiredResources": ["deployments", "media", "observations"],
+  "recommendedResources": ["measurements", "alignments", "contextJoins"],
+  "observationTypes": ["landCover", "habitatCondition", "disturbance", "restoration"],
+  "measurementTypes": [
+    "landCoverClass",
+    "canopyCover",
+    "snowCover",
+    "burnedArea",
+    "shorelinePosition",
+    "glacierFrontDistance",
+    "erosionScarpHeight"
+  ],
+  "recommendedContextDatasets": ["esa-worldcover", "gfw"],
+  "notes": [
+    "Code landCoverClass with measurementScheme (corine, nlcd, esa-worldcover, osm, or a documented custom scheme).",
+    "Set deployments.fixedPoint=true and reuse locationID for marked repeat-photo stakes."
+  ]
+}

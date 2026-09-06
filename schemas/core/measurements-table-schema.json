@@ -1,0 +1,150 @@
+{
+  "name": "measurements",
+  "title": "Measurements",
+  "description": "Table with quantitative or coded facts attached to an observation. This is the Darwin Core MeasurementOrFact analogue: taxon is to Camtrap DP as measurement is to EMDP. One observation may have many measurements.",
+  "fields": [
+    {
+      "name": "measurementID",
+      "description": "Unique identifier of the measurement.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementID",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "meas1"
+    },
+    {
+      "name": "observationID",
+      "description": "Observation this measurement describes. Foreign key to `observations.observationID`.",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "obs1"
+    },
+    {
+      "name": "mediaID",
+      "description": "Optional media file this measurement was taken from or computed on.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "m1"
+    },
+    {
+      "name": "measurementType",
+      "description": "What was measured. Prefer a term from `schemas/core/vocabularies/measurement-types.json`. Profiles may add terms.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementType",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "secchiDepth"
+    },
+    {
+      "name": "measurementValue",
+      "description": "Recorded value. Stored as string so categorical codes (land-cover class, Bortle class, tide phase) and numbers share one column.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementValue",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "1.2"
+    },
+    {
+      "name": "measurementUnit",
+      "description": "Unit of `measurementValue`. Use UCUM-like symbols where possible (`degC`, `m`, `ug/m3`, `mag/arcsec2`, `%`). Empty for dimensionless codes.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementUnit",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "m"
+    },
+    {
+      "name": "measurementScheme",
+      "description": "Authority or classification system for coded values (e.g. `corine`, `nlcd`, `esa-worldcover`, `bortle`, `openaq-aqi`).",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    },
+    {
+      "name": "measurementSource",
+      "description": "How the value was obtained.",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "inSitu",
+          "imageDerived",
+          "externalDataset",
+          "modelOutput",
+          "estimated"
+        ]
+      },
+      "example": "inSitu"
+    },
+    {
+      "name": "datasetID",
+      "description": "External dataset or instrument identifier when `measurementSource` is `externalDataset` or `modelOutput` (e.g. `era5`, `sentinel-5p`, `openaq`, `viirs-dnb`, `coralnet`).",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    },
+    {
+      "name": "datasetVersion",
+      "description": "Version, product, or processing level of `datasetID`.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    },
+    {
+      "name": "measurementAccuracy",
+      "description": "Reported accuracy, error, or uncertainty of the value, in the same unit as `measurementUnit` when numeric.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementAccuracy",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "0.1"
+    },
+    {
+      "name": "measurementMethod",
+      "description": "Method or protocol used to obtain the value.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementMethod",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Secchi disk, 20 cm"
+    },
+    {
+      "name": "measurementDeterminedBy",
+      "description": "Person, sensor, station, or model that produced the value.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementDeterminedBy",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Jane Doe"
+    },
+    {
+      "name": "measurementDeterminedDate",
+      "description": "Date and time the value was determined. ISO 8601 with timezone designator.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementDeterminedDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": false },
+      "example": "2026-06-15T08:40:00Z"
+    },
+    {
+      "name": "classificationProbability",
+      "description": "Model confidence when the value is image-derived or a model output, `0`–`1`.",
+      "type": "number",
+      "constraints": { "required": false, "minimum": 0, "maximum": 1 },
+      "example": ""
+    },
+    {
+      "name": "measurementRemarks",
+      "description": "Comments or notes about the measurement.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/measurementRemarks",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "measurementID",
+  "foreignKeys": [
+    {
+      "fields": "observationID",
+      "reference": { "resource": "observations", "fields": "observationID" }
+    },
+    {
+      "fields": "mediaID",
+      "reference": { "resource": "media", "fields": "mediaID" }
+    }
+  ]
+}

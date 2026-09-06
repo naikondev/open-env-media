@@ -1,0 +1,190 @@
+{
+  "name": "media",
+  "title": "Media",
+  "description": "Table with media files recorded during deployments. Files may be local paths or external URLs. No assumption is made that files are bundled in the package.",
+  "fields": [
+    {
+      "name": "mediaID",
+      "description": "Unique identifier of the media file.",
+      "skos:broadMatch": "http://purl.org/dc/terms/identifier",
+      "type": "string",
+      "constraints": { "required": true, "unique": true },
+      "example": "m1"
+    },
+    {
+      "name": "deploymentID",
+      "description": "Identifier of the deployment the media file belongs to. Foreign key to `deployments.deploymentID`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/parentEventID",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "dep1"
+    },
+    {
+      "name": "timestamp",
+      "description": "Date and time at which the media file was captured. ISO 8601 with timezone designator.",
+      "skos:exactMatch": "http://ns.adobe.com/xap/1.0/CreateDate",
+      "type": "datetime",
+      "format": "%Y-%m-%dT%H:%M:%S%z",
+      "constraints": { "required": true },
+      "example": "2026-06-15T08:42:10Z"
+    },
+    {
+      "name": "filePath",
+      "description": "URL or relative path to the media file.",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/accessURI",
+      "type": "string",
+      "constraints": { "required": true },
+      "example": "media/waterfront-001.jpg"
+    },
+    {
+      "name": "fileName",
+      "description": "Name of the media file. If provided, files should sort chronologically within a deployment on `timestamp` then `fileName`.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "waterfront-001.jpg"
+    },
+    {
+      "name": "fileMediatype",
+      "description": "IANA Media Type of the file.",
+      "skos:broadMatch": "http://purl.org/dc/elements/1.1/format",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^(image|video|audio|application)/.*$"
+      },
+      "example": "image/jpeg"
+    },
+    {
+      "name": "filePublic",
+      "description": "`false` if the media file is not publicly accessible (privacy, embargo, or rights restriction).",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/serviceExpectation",
+      "type": "boolean",
+      "constraints": { "required": true },
+      "example": true
+    },
+    {
+      "name": "fileHash",
+      "description": "Cryptographic hash of the file for integrity and evidence. Prefixed as `algorithm:hex` (e.g. `sha256:`).",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "sha256:4f2c0a1b8e9d"
+    },
+    {
+      "name": "mediaRole",
+      "description": "Role of this file in the evidence chain. `primary` is the observation frame. `raw` is a camera original. `derived` is a processed product. `thumbnail` is a preview. `calibration` is a color card, SQM, or scale reference.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": ["primary", "raw", "derived", "thumbnail", "calibration"]
+      },
+      "example": "primary"
+    },
+    {
+      "name": "derivedFromMediaID",
+      "description": "If this file is processed from another package media file, the source `mediaID`.",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "m1-raw"
+    },
+    {
+      "name": "captureMethod",
+      "description": "How the media was captured.",
+      "skos:broadMatch": "http://rs.tdwg.org/ac/terms/resourceCreationTechnique",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": [
+          "handheld",
+          "fixedPoint",
+          "timeLapse",
+          "activityDetection",
+          "aerial",
+          "underwater",
+          "other"
+        ]
+      },
+      "example": "handheld"
+    },
+    {
+      "name": "creator",
+      "description": "Person or organization that created the media file.",
+      "skos:exactMatch": "http://purl.org/dc/terms/creator",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": "Jane Doe"
+    },
+    {
+      "name": "latitude",
+      "description": "Capture latitude when it differs from the deployment location (handheld GPS). Decimal degrees, WGS84. Omit when `spatialPrivacy` is `withheld`.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/decimalLatitude",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -90, "maximum": 90 },
+      "example": 42.38125
+    },
+    {
+      "name": "longitude",
+      "description": "Capture longitude when it differs from the deployment location. Decimal degrees, WGS84.",
+      "skos:broadMatch": "http://rs.tdwg.org/dwc/terms/decimalLongitude",
+      "type": "number",
+      "constraints": { "required": false, "minimum": -180, "maximum": 180 },
+      "example": -71.12341
+    },
+    {
+      "name": "coordinateUncertainty",
+      "description": "Horizontal uncertainty of the media capture coordinates, in meters.",
+      "skos:exactMatch": "http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters",
+      "type": "integer",
+      "constraints": { "required": false, "minimum": 1 },
+      "unit": "m",
+      "example": 8
+    },
+    {
+      "name": "elevation",
+      "description": "Elevation or altitude at capture.",
+      "type": "number",
+      "constraints": { "required": false },
+      "unit": "m",
+      "example": 24.5
+    },
+    {
+      "name": "calibrationTarget",
+      "description": "Reference target present in or associated with the frame, enabling later photometric or colorimetric use.",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "enum": ["none", "colorCard", "sqm", "polarimeter", "scaleBar", "other"]
+      },
+      "example": "none"
+    },
+    {
+      "name": "exifData",
+      "description": "Selected EXIF or XMP data as a JSON object. Do not duplicate fields already modeled as columns. Strip GPS tags when `filePublic` is false or coordinates are withheld.",
+      "type": "any",
+      "constraints": { "required": false },
+      "example": "{\"EXIF\":{\"ISO\":200,\"FNumber\":8}}"
+    },
+    {
+      "name": "favorite",
+      "description": "`true` if the file is an exemplar or preferred public evidence frame.",
+      "type": "boolean",
+      "constraints": { "required": false },
+      "example": true
+    },
+    {
+      "name": "mediaComments",
+      "description": "Comments or notes about the media file.",
+      "skos:exactMatch": "http://rs.tdwg.org/ac/terms/comments",
+      "type": "string",
+      "constraints": { "required": false },
+      "example": ""
+    }
+  ],
+  "missingValues": ["", "NA", "NaN", "nan"],
+  "primaryKey": "mediaID",
+  "foreignKeys": [
+    {
+      "fields": "deploymentID",
+      "reference": { "resource": "deployments", "fields": "deploymentID" }
+    }
+  ]
+}
