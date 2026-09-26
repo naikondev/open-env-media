@@ -1,0 +1,2 @@
+attributionRecordID,sourceType,sourceID,amount,currency,campaignID,activityID,purpose,status,allocatedAt,evidenceObservationIDs,attributionRecordComments
+ar1,grant,grant-2026-nb-14,2500,USD,camp-shoreline,survey-north-basin,North Basin water-quality monitoring,completed,2026-06-20T16:00:00Z,obs1,Explicit allocation to this survey. Not a claim of ecological success.

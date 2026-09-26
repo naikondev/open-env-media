@@ -1,0 +1,85 @@
+{
+  "id": "urn:emdp:example-north-basin-attribution",
+  "name": "example-emdp-north-basin-attribution",
+  "title": "North Basin water-quality media with grant allocation (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["water", "attribution"],
+  "version": "0.3.0",
+  "created": "2026-09-26",
+  "description": "Same shoreline survey as the water example, with an explicit grant allocation linked to the algal-bloom observation.",
+  "keywords": ["attribution", "water quality", "EMDP"],
+  "contributors": [
+    {
+      "title": "Jane Doe",
+      "role": "contact",
+      "organization": "BlueRiver Lab"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-100",
+    "title": "North Basin summer water watch",
+    "captureMethod": ["handheld"],
+    "observationTypes": ["waterQuality"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-71.1234, 42.3812]
+  },
+  "temporal": {
+    "start": "2026-06-15",
+    "end": "2026-06-15"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    },
+    {
+      "name": "attributionRecords",
+      "path": "attribution-records.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/attribution-records-table-schema.json"
+    }
+  ]
+}

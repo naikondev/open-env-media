@@ -1,0 +1,2 @@
+mediaID,deploymentID,timestamp,filePath,fileName,fileMediatype,filePublic,embargoUntil,fileHash,mediaRole,derivedFromMediaID,captureMethod,creator,latitude,longitude,coordinateUncertainty,elevation,calibrationTarget,exifData,favorite,mediaComments
+m1,dep1,2026-07-08T13:42:00Z,media/mill-haze-001.jpg,mill-haze-001.jpg,image/jpeg,true,,sha256:atm001,primary,,handheld,Sam Ortiz,42.41,-71.08,15,38,none,,true,Visible brown haze over the stacks.

@@ -30,3 +30,4 @@ packages = ["emdp"]
 "schemas/core/alignments-table-schema.json" = "emdp/schemas/alignments-table-schema.json"
 "schemas/core/context-joins-table-schema.json" = "emdp/schemas/context-joins-table-schema.json"
 "schemas/core/attribution-records-table-schema.json" = "emdp/schemas/attribution-records-table-schema.json"
+"schemas/core/vocabularies/measurement-types.json" = "emdp/schemas/vocabularies/measurement-types.json"

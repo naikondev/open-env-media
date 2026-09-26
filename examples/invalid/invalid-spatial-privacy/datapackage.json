@@ -38,19 +38,19 @@
     },
     {
       "name": "media",
-      "path": "../../sample-package/media.csv",
+      "path": "../../water-package/media.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/media-table-schema.json"
     },
     {
       "name": "observations",
-      "path": "../../sample-package/observations.csv",
+      "path": "../../water-package/observations.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/observations-table-schema.json"
     },
     {
       "name": "measurements",
-      "path": "../../sample-package/measurements.csv",
+      "path": "../../water-package/measurements.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/measurements-table-schema.json"
     }

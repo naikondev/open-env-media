@@ -9,7 +9,7 @@ Contributions are welcome from researchers, conservation practitioners, engineer
 3. Add or update a package in `examples/`.
 4. Add a negative fixture under `examples/invalid/` if the change tightens validation.
 5. Submit a pull request against the relevant schema or profile.
-6. Confirm `emdp validate examples/sample-package` and `python3 scripts/validate.py` pass.
+6. Confirm `emdp validate examples/water-package` and `python3 scripts/validate.py` pass.
 
 ## Profile proposal
 
@@ -37,11 +37,11 @@ Satellite granules and model cubes belong in `contextJoins` (`datasetID`, option
 
 ```text
 pip install -e .
-emdp validate examples/sample-package
+emdp validate examples/water-package
 python3 scripts/validate.py
 ```
 
-CI installs the package and runs both the CLI and the repo fixture suite. A change that claims to reject a class of packages needs a fixture under `examples/invalid/`.
+CI installs the package and runs both the CLI and the repo fixture suite. A change that claims to reject a class of packages needs a fixture under `examples/invalid/`. Profile `measurementTypes` must exist in `schemas/core/vocabularies/measurement-types.json`. Known types must use the registry unit (`sqm` is `mag/arcsec2`, not `%`).
 
 ## Review checklist
 

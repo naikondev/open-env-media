@@ -1,0 +1,2 @@
+contextJoinID,targetType,targetID,datasetID,datasetVersion,variable,value,unit,joinTime,joinLatitude,joinLongitude,joinRadius,joinMethod,spatialMethod,temporalWindow,sourceRecordID,sourceURI,retrievedAt,contextJoinComments
+join1,observation,obs1,openaq,v3,pm25,41,ug/m3,2026-07-08T13:42:00Z,42.41,-71.08,8000,nearestStation,nearest,hourly,US-EPA-MILL,https://api.openaq.org/v3/measurements/example,2026-07-08T16:00:00Z,Nearest station 2.1 km SW

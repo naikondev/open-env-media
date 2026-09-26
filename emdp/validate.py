@@ -66,6 +66,42 @@ def profile_schema() -> dict:
     return json.loads((schema_dir() / "emdp-profile.json").read_text())
 
 
+def measurement_types_path() -> Path:
+    return schema_dir() / "vocabularies" / "measurement-types.json"
+
+
+def load_measurement_units() -> dict[str, str]:
+    """Known measurementType → expected unit. Unknown types are omitted."""
+    path = measurement_types_path()
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text())
+    units: dict[str, str] = {}
+    for term in data.get("terms") or []:
+        term_id = term.get("id")
+        if term_id:
+            units[str(term_id)] = str(term.get("unit") or "").strip()
+    return units
+
+
+def profile_measurement_type_errors(profiles_dir: str | Path) -> list[str]:
+    """Each profile measurementTypes entry must exist in the registry."""
+    path = measurement_types_path()
+    if not path.exists():
+        return ["registry: measurement-types.json missing"]
+    registry = set(load_measurement_units())
+    errors: list[str] = []
+    for profile_path in sorted(Path(profiles_dir).glob("*/profile.json")):
+        profile = json.loads(profile_path.read_text())
+        name = profile.get("name") or profile_path.parent.name
+        for measurement_type in profile.get("measurementTypes") or []:
+            if measurement_type not in registry:
+                errors.append(
+                    f"profile:{name}: measurementType {measurement_type!r} is not in the registry"
+                )
+    return errors
+
+
 def load_json(path: Path) -> object:
     return json.loads(path.read_text())
 
@@ -153,6 +189,7 @@ def read_table(package_dir: Path, resource: dict) -> tuple[list[str], list[dict]
 def validate_tables(package_dir: Path, package: dict, report: Report) -> None:
     resources = {r["name"]: r for r in package.get("resources") or [] if "name" in r}
     tables: dict[str, tuple[dict, list[dict]]] = {}
+    known_units = load_measurement_units()
 
     for name, resource in resources.items():
         try:
@@ -201,6 +238,15 @@ def validate_tables(package_dir: Path, package: dict, report: Report) -> None:
                         "measurement-parent",
                         f"{name}:{index} must reference deploymentID, observationID, or mediaID",
                     )
+                measurement_type = row.get("measurementType", "")
+                if not empty(measurement_type) and measurement_type in known_units:
+                    expected = known_units[measurement_type]
+                    actual = "" if empty(row.get("measurementUnit", "")) else row["measurementUnit"].strip()
+                    if actual != expected:
+                        report.add(
+                            "measurement-unit",
+                            f"{name}:{index} {measurement_type} expects unit {expected!r}, got {actual!r}",
+                        )
 
     for name, (schema, rows) in tables.items():
         for fk in schema.get("foreignKeys") or []:

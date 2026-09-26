@@ -14,25 +14,25 @@
   "resources": [
     {
       "name": "deployments",
-      "path": "../../sample-package/deployments.csv",
+      "path": "../../water-package/deployments.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/deployments-table-schema.json"
     },
     {
       "name": "media",
-      "path": "../../sample-package/media.csv",
+      "path": "../../water-package/media.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/media-table-schema.json"
     },
     {
       "name": "observations",
-      "path": "../../sample-package/observations.csv",
+      "path": "../../water-package/observations.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/observations-table-schema.json"
     },
     {
       "name": "observations",
-      "path": "../../sample-package/observations.csv",
+      "path": "../../water-package/observations.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/observations-table-schema.json"
     }

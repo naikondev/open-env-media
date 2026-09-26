@@ -1,0 +1,79 @@
+{
+  "id": "urn:emdp:example-mill-road",
+  "name": "example-emdp-mill-road",
+  "title": "Mill Road haze (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["atmosphere"],
+  "version": "0.3.0",
+  "created": "2026-09-26",
+  "description": "Handheld photograph of industrial haze with an in-situ PM2.5 reading and an OpenAQ station join.",
+  "keywords": ["air quality", "haze", "EMDP"],
+  "contributors": [
+    {
+      "title": "Sam Ortiz",
+      "role": "contact",
+      "organization": "Mill Road Watch"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-mill",
+    "title": "Mill Road summer haze watch",
+    "captureMethod": ["handheld"],
+    "observationTypes": ["airQuality"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-71.08, 42.41]
+  },
+  "temporal": {
+    "start": "2026-07-08",
+    "end": "2026-07-08"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    }
+  ]
+}

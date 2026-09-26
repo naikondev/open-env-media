@@ -67,6 +67,7 @@ Optional resources (`measurements`, `alignments`, `contextJoins`, `attributionRe
 - Required vs recommended fields stated in Table Schema
 - Public examples and negative fixtures
 - CI must reject invalid packages via the reference CLI
+- No per-profile steward yet. Profiles may be cut, merged, or dropped. Measurement-type drift is caught by the registry and CI, not by named owners.
 
 ## Versioning
 

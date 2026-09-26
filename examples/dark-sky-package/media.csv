@@ -1,0 +1,2 @@
+mediaID,deploymentID,timestamp,filePath,fileName,fileMediatype,filePublic,embargoUntil,fileHash,mediaRole,derivedFromMediaID,captureMethod,creator,latitude,longitude,coordinateUncertainty,elevation,calibrationTarget,exifData,favorite,mediaComments
+m1,dep1,2026-08-02T02:48:00Z,media/pine-knoll-zenith.jpg,pine-knoll-zenith.jpg,image/jpeg,true,,sha256:sky001,primary,,fixedPoint,Lee Chen,42.71,-71.62,10,214,sqm,,true,Zenith frame after SQM reading.

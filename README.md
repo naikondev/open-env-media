@@ -79,15 +79,15 @@ Three `deployments` resources do not satisfy the profile. Additional uniquely na
 
 Profiles add vocabularies and optional resources on top of the core tables.
 
-| Profile | For | Typical measurements / joins |
-| --- | --- | --- |
-| `land` | Land cover, habitat, erosion, fire recovery | `landCoverClass`, canopy %, WorldCover |
-| `rpdp` | Fixed-point repeat photography | `alignments` + reused `locationID` |
-| `water` | Rivers, lakes, marine habitat | SST, Secchi, salinity, CoralNet cover |
-| `atmosphere` | Air quality, flares, haze | PM2.5, NO2, OpenAQ / Sentinel-5P |
-| `dark-sky` | Light pollution | SQM, Bortle, VIIRS DNB |
-| `climate` | Extremes and event context | ERA5 anomalies, flood stage |
-| `attribution` | CMS money-to-activity provenance | `attributionRecords` |
+| Profile | For | Typical measurements / joins | Example |
+| --- | --- | --- | --- |
+| `land` | Land cover, habitat, erosion, fire recovery | `landCoverClass`, canopy %, WorldCover | `examples/repeat-photo-package` |
+| `rpdp` | Fixed-point repeat photography | `alignments` + reused `locationID` | `examples/repeat-photo-package` |
+| `water` | Rivers, lakes, marine habitat | SST, Secchi, salinity, CoralNet cover | `examples/water-package` |
+| `atmosphere` | Air quality, flares, haze | PM2.5, NO2, OpenAQ / Sentinel-5P | `examples/atmosphere-package` |
+| `dark-sky` | Light pollution | SQM, Bortle, VIIRS DNB | `examples/dark-sky-package` |
+| `climate` | Extremes and event context | ERA5 anomalies, flood stage | `examples/climate-package` |
+| `attribution` | CMS money-to-activity provenance | `attributionRecords` | `examples/attribution-package` |
 
 A core-only package (three tables, qualitative `condition`) is valid. Measurements and joins make it comparable.
 
@@ -106,8 +106,12 @@ A core-only package (three tables, qualitative `condition`) is valid. Measuremen
 - `schemas/core`: Data Package profile and Table Schemas
 - `schemas/core/vocabularies`: measurement types and context dataset IDs
 - `schemas/profiles`: domain extensions
-- `examples/sample-package`: water-quality reference
-- `examples/repeat-photo-package`: multi-year fixed-point example
+- `examples/water-package`: water-quality reference
+- `examples/repeat-photo-package`: land + repeat photography
+- `examples/atmosphere-package`: haze with an OpenAQ join
+- `examples/dark-sky-package`: SQM, Bortle, and VIIRS DNB
+- `examples/climate-package`: reservoir drawdown with an ERA5 join
+- `examples/attribution-package`: water rows plus a grant allocation
 - `examples/invalid`: fixtures the validator must reject
 - `docs/MODEL.md`: evidence model
 - `docs/CAMTRAP-CROSSWALK.md`: Camtrap dual-export mapping
@@ -121,7 +125,7 @@ Install the validator and point it at a package:
 
 ```text
 pip install -e .
-emdp validate examples/sample-package
+emdp validate examples/water-package
 emdp validate path/to/my-package
 ```
 

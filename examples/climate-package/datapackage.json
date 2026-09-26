@@ -1,0 +1,79 @@
+{
+  "id": "urn:emdp:example-ash-reservoir",
+  "name": "example-emdp-ash-reservoir",
+  "title": "Ash Reservoir drawdown (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["climate"],
+  "version": "0.3.0",
+  "created": "2026-09-26",
+  "description": "Handheld photograph of a drawn-down reservoir with a precipitation-anomaly measurement and an ERA5 climatology join.",
+  "keywords": ["drought", "reservoir", "climate", "EMDP"],
+  "contributors": [
+    {
+      "title": "Morgan Hale",
+      "role": "contact",
+      "organization": "Ash Valley Conservancy"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-ash",
+    "title": "Ash Reservoir drought watch",
+    "captureMethod": ["handheld"],
+    "observationTypes": ["climateEvent"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-72.11, 42.55]
+  },
+  "temporal": {
+    "start": "2026-09-03",
+    "end": "2026-09-03"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    }
+  ]
+}

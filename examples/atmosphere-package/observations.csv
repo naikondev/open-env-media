@@ -1,0 +1,2 @@
+observationID,deploymentID,mediaID,eventID,eventStart,eventEnd,observationLevel,observationType,condition,bboxX,bboxY,bboxWidth,bboxHeight,classificationMethod,classifiedBy,classificationTimestamp,classificationProbability,observationTags,observationComments
+obs1,dep1,m1,haze-2026-07,2026-07-08T13:42:00Z,2026-07-08T13:42:00Z,media,airQuality,industrial haze,0.1,0.15,0.8,0.45,human,Sam Ortiz,2026-07-08T18:00:00Z,0.86,haze | downwind,Brown plume and reduced contrast toward the mill.

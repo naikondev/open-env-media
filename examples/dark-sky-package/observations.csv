@@ -1,0 +1,2 @@
+observationID,deploymentID,mediaID,eventID,eventStart,eventEnd,observationLevel,observationType,condition,bboxX,bboxY,bboxWidth,bboxHeight,classificationMethod,classifiedBy,classificationTimestamp,classificationProbability,observationTags,observationComments
+obs1,dep1,m1,alan-2026-08,2026-08-02T02:48:00Z,2026-08-02T02:48:00Z,media,lightPollution,moderate skyglow,,,,,human,Lee Chen,2026-08-02T12:00:00Z,0.8,zenith | suburban-glow,Milky Way weakly visible; glow on the southern horizon.

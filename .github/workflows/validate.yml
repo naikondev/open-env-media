@@ -17,8 +17,12 @@ jobs:
       - name: Validate example packages via CLI
         run: |
           emdp --version
-          emdp validate examples/sample-package
+          emdp validate examples/water-package
           emdp validate examples/repeat-photo-package
+          emdp validate examples/atmosphere-package
+          emdp validate examples/dark-sky-package
+          emdp validate examples/climate-package
+          emdp validate examples/attribution-package
       - name: Reject a known-invalid package
         run: |
           if emdp validate examples/invalid/three-deployments-only; then

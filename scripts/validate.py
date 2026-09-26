@@ -12,12 +12,22 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
-from emdp.validate import load_json, profile_schema, schema_dir, validate_package
+from emdp.validate import (
+    load_json,
+    profile_measurement_type_errors,
+    profile_schema,
+    schema_dir,
+    validate_package,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 VALID_PACKAGES = [
-    ROOT / "examples/sample-package",
+    ROOT / "examples/water-package",
     ROOT / "examples/repeat-photo-package",
+    ROOT / "examples/atmosphere-package",
+    ROOT / "examples/dark-sky-package",
+    ROOT / "examples/climate-package",
+    ROOT / "examples/attribution-package",
 ]
 INVALID_ROOT = ROOT / "examples/invalid"
 
@@ -34,6 +44,7 @@ def validate_repo_json() -> list[str]:
     Draft202012Validator.check_schema(profile_schema())
     if not (schema_dir() / "emdp-profile.json").exists():
         errors.append("json: bundled profile schema missing")
+    errors.extend(profile_measurement_type_errors(ROOT / "schemas/profiles"))
     return errors
 
 

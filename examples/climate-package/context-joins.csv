@@ -1,0 +1,2 @@
+contextJoinID,targetType,targetID,datasetID,datasetVersion,variable,value,unit,joinTime,joinLatitude,joinLongitude,joinRadius,joinMethod,spatialMethod,temporalWindow,sourceRecordID,sourceURI,retrievedAt,contextJoinComments
+join1,observation,obs1,era5,2024,precipAnomaly,-42,%,2026-09-03T15:22:00Z,42.55,-72.11,0,gridCell,nearest,climatology,ERA5-JJA-2026,https://cds.climate.copernicus.eu/,2026-09-04T11:00:00Z,JJA 2026 versus 1991-2020

@@ -1,0 +1,2 @@
+measurementID,deploymentID,observationID,mediaID,measurementType,measurementValue,measurementUnit,measurementScheme,measurementSource,datasetID,datasetVersion,measurementAccuracy,measurementMethod,measurementDeterminedBy,measurementDeterminedDate,classificationProbability,measurementRemarks
+meas-bad,dep1,obs1,m1,sqm,20.4,%, ,inSitu,,,,,,,

@@ -1,0 +1,2 @@
+mediaID,deploymentID,timestamp,filePath,fileName,fileMediatype,filePublic,embargoUntil,fileHash,mediaRole,derivedFromMediaID,captureMethod,creator,latitude,longitude,coordinateUncertainty,elevation,calibrationTarget,exifData,favorite,mediaComments
+m1,dep1,2026-09-03T15:22:00Z,media/ash-drawdown.jpg,ash-drawdown.jpg,image/jpeg,true,,sha256:cli001,primary,,handheld,Morgan Hale,42.55,-72.11,12,164,none,,true,Exposed basin floor and high-water stain.

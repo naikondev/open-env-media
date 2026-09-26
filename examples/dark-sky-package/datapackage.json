@@ -1,0 +1,79 @@
+{
+  "id": "urn:emdp:example-pine-knoll",
+  "name": "example-emdp-pine-knoll",
+  "title": "Pine Knoll sky quality (example)",
+  "profile": "../../schemas/core/emdp-profile.json",
+  "emdpProfiles": ["dark-sky"],
+  "version": "0.3.0",
+  "created": "2026-09-26",
+  "description": "Fixed-point night photograph with an SQM reading, Bortle class, and a VIIRS Day/Night Band join.",
+  "keywords": ["dark sky", "light pollution", "EMDP"],
+  "contributors": [
+    {
+      "title": "Lee Chen",
+      "role": "contact",
+      "organization": "Pine Knoll Observatory"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "data"
+    },
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0",
+      "scope": "media"
+    }
+  ],
+  "project": {
+    "id": "p-knoll",
+    "title": "Pine Knoll night-sky watch",
+    "captureMethod": ["fixedPoint"],
+    "observationTypes": ["lightPollution"],
+    "observationLevel": ["media"]
+  },
+  "spatial": {
+    "type": "Point",
+    "coordinates": [-71.62, 42.71]
+  },
+  "temporal": {
+    "start": "2026-08-02",
+    "end": "2026-08-02"
+  },
+  "resources": [
+    {
+      "name": "deployments",
+      "path": "deployments.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/deployments-table-schema.json"
+    },
+    {
+      "name": "media",
+      "path": "media.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/media-table-schema.json"
+    },
+    {
+      "name": "observations",
+      "path": "observations.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/observations-table-schema.json"
+    },
+    {
+      "name": "measurements",
+      "path": "measurements.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/measurements-table-schema.json"
+    },
+    {
+      "name": "contextJoins",
+      "path": "context-joins.csv",
+      "profile": "tabular-data-resource",
+      "schema": "../../schemas/core/context-joins-table-schema.json"
+    }
+  ]
+}

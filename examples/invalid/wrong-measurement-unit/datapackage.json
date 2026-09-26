@@ -1,8 +1,8 @@
 {
-  "id": "urn:emdp:invalid-datetime",
-  "name": "invalid-datetime",
+  "id": "urn:emdp:wrong-measurement-unit",
+  "name": "wrong-measurement-unit",
   "profile": "../../../schemas/core/emdp-profile.json",
-  "created": "2026-09-06",
+  "created": "2026-09-26",
   "contributors": [
     {
       "title": "x",
@@ -11,46 +11,39 @@
   ],
   "project": {
     "title": "invalid",
-    "captureMethod": [
-      "handheld"
-    ],
-    "observationTypes": [
-      "waterQuality"
-    ]
+    "captureMethod": ["handheld"],
+    "observationTypes": ["lightPollution"]
   },
   "spatial": {
     "type": "Point",
-    "coordinates": [
-      -71.1234,
-      42.3812
-    ]
+    "coordinates": [-71.62, 42.71]
   },
   "temporal": {
-    "start": "2026-06-15",
-    "end": "2026-06-15"
+    "start": "2026-08-02",
+    "end": "2026-08-02"
   },
   "resources": [
     {
       "name": "deployments",
-      "path": "../../water-package/deployments.csv",
+      "path": "../../dark-sky-package/deployments.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/deployments-table-schema.json"
     },
     {
       "name": "media",
-      "path": "media.csv",
+      "path": "../../dark-sky-package/media.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/media-table-schema.json"
     },
     {
       "name": "observations",
-      "path": "../../water-package/observations.csv",
+      "path": "../../dark-sky-package/observations.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/observations-table-schema.json"
     },
     {
       "name": "measurements",
-      "path": "../../water-package/measurements.csv",
+      "path": "measurements.csv",
       "profile": "tabular-data-resource",
       "schema": "../../../schemas/core/measurements-table-schema.json"
     }

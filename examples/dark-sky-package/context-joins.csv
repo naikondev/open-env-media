@@ -1,0 +1,2 @@
+contextJoinID,targetType,targetID,datasetID,datasetVersion,variable,value,unit,joinTime,joinLatitude,joinLongitude,joinRadius,joinMethod,spatialMethod,temporalWindow,sourceRecordID,sourceURI,retrievedAt,contextJoinComments
+join1,observation,obs1,viirs-dnb,v2,viirsRadiance,1.8,nW/cm2/sr,2026-08-02T02:48:00Z,42.71,-71.62,750,gridCell,nearest,monthly,VIIRS-DNB-2026-07,https://eogdata.mines.edu/nighttime_light/,2026-08-03T09:00:00Z,Monthly composite cell containing the pad

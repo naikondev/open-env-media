@@ -1,4 +1,4 @@
-# Sample EMDP package (water)
+# Water profile example
 
 One shoreline visit, one photograph, one water-quality assertion, two photo-associated measurements, one **deployment-only** logger measurement (pH, no observation), and an OpenAQ join with method provenance.
 

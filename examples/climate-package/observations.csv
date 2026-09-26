@@ -1,0 +1,2 @@
+observationID,deploymentID,mediaID,eventID,eventStart,eventEnd,observationLevel,observationType,condition,bboxX,bboxY,bboxWidth,bboxHeight,classificationMethod,classifiedBy,classificationTimestamp,classificationProbability,observationTags,observationComments
+obs1,dep1,m1,drought-2026,2026-09-03T15:22:00Z,2026-09-03T15:22:00Z,media,climateEvent,reservoir drawdown,0.05,0.35,0.9,0.4,human,Morgan Hale,2026-09-04T10:00:00Z,0.92,drought | low-water,The photograph is the condition. The rainfall deficit is the ERA5 join.
