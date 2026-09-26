@@ -61,13 +61,17 @@ Optional resources (`measurements`, `alignments`, `contextJoins`, `attributionRe
 
 ## Governance
 
-- RFC for new profiles or breaking changes
-- Version-controlled schema updates
-- Compatibility review for core package changes
-- Required vs recommended fields stated in Table Schema
-- Public examples and negative fixtures
-- CI must reject invalid packages via the reference CLI
-- No per-profile steward yet. Profiles may be cut, merged, or dropped. Measurement-type drift is caught by the registry and CI, not by named owners.
+Until there is a second maintainer, **Prashant Naik** decides. When there are two maintainers who disagree, the original author breaks the tie. Branch protection and required reviewers wait until there is a second maintainer.
+
+An RFC is required for a new profile, a dropped profile, or a change that breaks existing packages or `emdpProfiles` values. File it as a GitHub Issue using `.github/ISSUE_TEMPLATE/rfc.md`. Label it `rfc` and `status:proposed`.
+
+The issue stays open at least **7 calendar days** before an implementing pull request is merged. If someone is still arguing, wait.
+
+Accepted means the maintainer approves the pull request that implements the issue. Close the issue with that pull request link and set `status:implemented`. Rejected issues take `status:rejected` and a one-line reason.
+
+Version-controlled schemas, required vs recommended fields in Table Schema, public examples, and negative fixtures stay in force. CI must reject invalid packages via the reference CLI.
+
+No per-profile steward yet. Profiles may be cut, merged, or dropped. Measurement-type drift is caught by the registry and CI, not by named owners.
 
 ## Versioning
 

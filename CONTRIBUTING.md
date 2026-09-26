@@ -4,11 +4,11 @@ Contributions are welcome from researchers, conservation practitioners, engineer
 
 ## How to contribute
 
-1. Open an issue describing the gap.
-2. Draft an RFC: problem, proposed Table Schema change, Camtrap DP compatibility impact, and an example row.
-3. Add or update a package in `examples/`.
+1. Open an issue for a validator bug, a broken example, or a small docs fix.
+2. For a new profile, a dropped profile, or a breaking schema change, open an RFC with [the RFC issue template](.github/ISSUE_TEMPLATE/rfc.md). See `CHARTER.md` for who decides, the 7-day wait, and how an RFC is accepted.
+3. After the RFC is accepted (or for a change that does not need one), add or update a package in `examples/`.
 4. Add a negative fixture under `examples/invalid/` if the change tightens validation.
-5. Submit a pull request against the relevant schema or profile.
+5. Submit a pull request against the relevant schema or profile. Link the RFC issue.
 6. Confirm `emdp validate examples/water-package` and `python3 scripts/validate.py` pass.
 
 ## Profile proposal
@@ -31,6 +31,8 @@ Satellite granules and model cubes belong in `contextJoins` (`datasetID`, option
 - Overlap Camtrap DP names when the concept is the same
 - Clear required vs optional constraints
 - Units on numeric fields
+- Profile `measurementTypes` must exist in `schemas/core/vocabularies/measurement-types.json`
+- Known types must use the registry unit (`sqm` is `mag/arcsec2`, not `%`)
 - No platform-specific pipeline requirements in the schema
 
 ## Validation
@@ -41,7 +43,7 @@ emdp validate examples/water-package
 python3 scripts/validate.py
 ```
 
-CI installs the package and runs both the CLI and the repo fixture suite. A change that claims to reject a class of packages needs a fixture under `examples/invalid/`. Profile `measurementTypes` must exist in `schemas/core/vocabularies/measurement-types.json`. Known types must use the registry unit (`sqm` is `mag/arcsec2`, not `%`).
+CI installs the package and runs both the CLI and the repo fixture suite. A change that claims to reject a class of packages needs a fixture under `examples/invalid/`.
 
 ## Review checklist
 
